@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<!--
+	Arcana by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Arduino Chrismas Lights - Courtney Pitcher</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<link rel="stylesheet" href="/assets/highlight-styles/monokai-sublime.css">
+		<script src="/assets/jquery-3.1.1.min.js"></script>
+		<link href="/assets/prism/prism.css" rel="stylesheet" />
+		<script src="/assets/prism/prism.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-clike.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-c.min.js"></script>
+	</head>
+	<body>
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Logo -->
+						<h1><a href="index.html" id="logo">Courtney <em>Pitcher</em></a></h1>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="/index.html">Home</a></li>
+								<li><a href="/index.html#">Electronics</a></li>
+								<li><a href="/index.html#">Arduino</a></li>
+								<li class="current"><a href="javascript:window.location.href=window.location.href">Arduino Christmas Lights</a></li>
+							</ul>
+						</nav>
+
+				</div>
+
+			<!-- Main -->
+				<section class="wrapper style1">
+					<div class="container">
+						<div id="content">
+
+							<!-- Content -->
+
+								<article>
+									<header>
+										<h2>Morse Code Christmas Lights Powered by an Arduino</h2>
+										<p>Chrismas Lights for the Kidnapped Tree.</p>
+									</header>
+									
+									<p>This is a rather simple project, that uses an arduino to flash and pulse lights, the pattern 
+									of flashes and pulses can be used to signal Morse code messages.</p>
+									
+									<p>In the days leading up to Christmas, while I was sitting in one of the camping chairs that 
+									make up the sole furnishings of my living room, I decided I needed a tree. Luckily I spied a wooden 
+									tree through the hole in one of my neighbour's windows. I decided to borrow it, getting into 
+									his house is quite easy, since he drove his car though his prefab wall one night when he came home 
+									drunk.</p>
+
+									<h3>Bill of Materials</h3>
+									<ol style="margin-left: 20px;">
+										<li>1x Arduino (<a href="https://www.sparkfun.com/products/11021">Available at Sparkfun</a>)</li>
+										<li>20x Red LED (<a href="https://www.sparkfun.com/products/9590">Available at Sparkfun</a>)</li>
+										<li>1x 100Ω resistor (<a href="https://www.sparkfun.com/products/13761">Available at Sparkfun</a>)</li>
+										<li>1x NPN transistor (optional) (<a href="https://www.sparkfun.com/products/521">Available at Sparkfun</a>)</li>
+										<li>1x 1kΩ resistor (optional) (<a href="https://www.sparkfun.com/products/13760">Available at Sparkfun</a>)</li>
+									</ol>
+
+									<h3>Circuit</h3>
+									<p>The ciruit uses a NPN transistor as a low side switch. The transistor allows the arduino 
+									to provide more current and voltage. The Vin pin of the arduino can provide up to 1A, as 
+									opposed to the 40mA of the I/O pins. The Vin pin provides the same voltage as the Arduino 
+									is powered by, in this case it is using a 12V power supply.</p>
+									
+									<img width="80%" style="display: block; margin-left: auto; margin-right: auto;" src="https://rawgithub.com/IgniparousTempest/arduino-christmas-lights/master/christmas_lights_breadboard.svg"/>
+									<p>The led chain is made up of a single LED colour, otherwise only the colour with the lowest 
+									voltage drop will be lit brightly. More chains can be added with different a colour each, 
+									but the resistor values will need to be recalculated very carefully, to avoid diode current 
+									hogging.</p>
+									<img width="80%" style="display: block; margin-left: auto; margin-right: auto;" src="https://rawgithub.com/IgniparousTempest/arduino-christmas-lights/master/christmas_lights_schematic.svg"/>
+									
+									<h3 id="code_example">Code</h3>
+									<p>Here is code use to control the lights, it is explained in the comments.</p>
+									
+									<div style="text-align: center;">
+									<pre  style="font-size: 80%; xwidth: 80%; display: inline-block; text-align: left;" class="language-c line-numbers" data-src="./christmas_lights.ino"></pre>
+									</div>
+									
+									<h3>Math</h3>
+								</article>
+
+						</div>
+					</div>
+				</section>
+
+			<!-- Footer -->
+				<script> 
+					$(function(){
+						$("#footer").load("/footer.html"); 
+					});
+				</script>
+				<div id="footer"></div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/jquery.dropotron.min.js"></script>
+			<script src="/assets/js/skel.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="/assets/js/main.js"></script>
+
+	</body>
+</html>

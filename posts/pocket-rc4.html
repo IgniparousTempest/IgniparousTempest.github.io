@@ -1,0 +1,347 @@
+<!DOCTYPE HTML>
+<!--
+	Arcana by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Pocket-RC4 - Courtney Pitcher</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<script src="/assets/google-analytics/google-analytics.js"></script>
+		
+		<script src="/assets/jquery-3.1.1.min.js"></script>
+		
+		<link href="/assets/prism/prism.css" rel="stylesheet" />
+		<script src="/assets/prism/prism.js"></script>
+	</head>
+	<body>
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Logo -->
+						<h1><a href="/index.html" id="logo">Courtney <em>Pitcher</em></a></h1>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="/index.html">Home</a></li>
+								<li><a href="/index.html#software">Tech Posts</a></li>
+								<li><a href="/index.html#">Ciphers</a></li>
+								<li class="current"><a href="javascript:window.location.href=window.location.href">Pocket-RC4</a></li>
+							</ul>
+						</nav>
+
+				</div>
+
+			<!-- Main -->
+				<section class="wrapper style1">
+					<div class="container">
+						<div id="content">
+
+							<!-- Content -->
+
+								<article>
+									<header>
+										<h2>Pocket-RC4</h2>
+										<p>Encryption for the covert magician.</p>
+									</header>
+
+									<p>Pocket-RC4 is an adaptation of the RC4B algorithm for use with standard playing cards, 
+									developed by Matthew E. McKague in his <a href="https://uwspace.uwaterloo.ca/bitstream/handle/10012/1141/memckagu2005.pdf">master's thesis</a>.</p>
+									
+									<p>A card cipher is a great introduction to cryptography as it gives you something tangible 
+									to work with, which helps to bind abstract cryptography concepts to real world objects; I highly 
+									recommend this as a teaching aide for cryptography 101 courses.</p>
+									
+									<p>Let's assume you work for the Malevolent Association of Genuinely Ingenious Conjures 
+									(M.A.G.I.C.), a clandestine order of magicians who need to covertly communicate the details of 
+									their latest magic tricks.  Or you might be someone who wants to secretly communicate with 
+									a friend, or you might just be someone who is interested in ciphers, but is far more fun to 
+									assume you work for M.A.G.I.C..</p>
+									
+									<p>For the tl;dr version try jumping right ahead to the <a href="#code_example">code and 
+									interactive demo</a>.</p>
+
+									<h3>Setup</h3>
+									<p>Before you begin, M.A.G.I.C. and you need to agree on the following things:</p>
+									<ol style="list-style: decimal; margin-left: 20px;">
+										<li>Initialisation Vector</li>
+										<li>Key deck</li>
+										<li>Card letter assignments</li>
+									</ol>
+									<p>These are all explained below.</p>
+
+									<h4>1) Initialisation Vector</h4>
+									<p>An initialisation vector (IV), is a string of random characters used to prepare the deck for 
+									encryption/decryption. The IV adds additional randomness to the encryption process by ensuring 
+									each ciphertext produced by the algorithm is associated with a pseudorandom initial deck state.
+									This makes it harder for our nemesis to work out the key deck ordering from captured plaintext/ciphertext 
+									pairs. This is why the IV should be unique for every communication and should be randomly generated. 
+									An IV of 27 letters should be sufficient.</p>
+									
+									<p>An easy way to randomly generate an IV for a card cipher is to: shuffle the deck, draw a 
+									card, write down the card's letter value, return the card to the deck. Repeat this until you have 
+									an IV of 27 characters.</p>
+									
+									<h4>2) Key deck</h4>
+									<p>The key deck is a specific ordering of cards in a deck. This ordering is kept secret and each 
+									of the two parties wishing to communicate with each other will need to maintain the same ordering 
+									as the other. When the IV and ciphertext are received, they are applied to the key deck to reveal 
+									the hidden message.</p>
+									
+									<p>Any random deck order can be used as the key deck. A random order is better than a simple 
+									pattern, as the simple pattern might be guessed easily in an intelligent brute force attack.</p>
+									
+									<p>The ciphertext and the IV are the public components of the encryption, they can be freely 
+									captured without compromising the message (Sort of, RC4 is quite broken and each captured 
+									IV/ciphertext pair gets you closer to revealing the key deck). The key deck's ordering is the secret 
+									component of the communication, and should be changed if the ordering is ever compromised.</p>
+									
+									<h4>3) Card Values</h4>
+									The assignment of letters to cards can be entirely decided upon by you, but assigning the cards 
+									to letters in alphabetical order, with jokers being space, is the easiest, see below.
+									
+									<style>
+									table {
+										border-collapse: separate;
+										-webkit-border-radius: 5px;
+										-moz-border-radius: 5px;
+										border-radius: 5px;
+										text-align: center;
+										border: 1px solid black;
+									}
+
+									th, td {
+										border-left:solid black 1px;
+										border-top:solid black 1px;
+										text-align: center;
+									}
+									
+									th {
+										font-weight:bold;
+										border-top: none;
+									}
+
+									td:first-child, th:first-child {
+										border-left: none;
+									}
+									
+									.bold{font-weight:bold !important;}
+									</style>
+									<table><tr><th colspan="13">Hearts and Spades</th><th colspan="13">Diamonds and Clubs</th><th>Joker</th></tr><tr><td class="bold">Ace</td><td class="bold">2</td><td class="bold">3</td><td class="bold">4</td><td class="bold">5</td><td class="bold">6</td><td class="bold">7</td><td class="bold">8</td><td class="bold">9</td><td class="bold">10</td><td class="bold">Jack</td><td class="bold">Queen</td><td class="bold">King</td><td class="bold">Ace</td><td class="bold">2</td><td class="bold">3</td><td class="bold">4</td><td class="bold">5</td><td class="bold">6</td><td class="bold">7</td><td class="bold">8</td><td class="bold">9</td><td class="bold">10</td><td class="bold">Jack</td><td class="bold">Queen</td><td class="bold">King</td><td class="bold">Joker</td></tr><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td></tr><tr><td>a</td><td>b</td><td>c</td><td>d</td><td>e</td><td>f</td><td>g</td><td>h</td><td>i</td><td>j</td><td>k</td><td>l</td><td>m</td><td>n</td><td>o</td><td>p</td><td>q</td><td>r</td><td>s</td><td>t</td><td>u</td><td>v</td><td>w</td><td>x</td><td>y</td><td>z</td><td>␣</td></tr></table>
+									
+									<h3>Algorithm</h3>
+									<p>The Pocket-RC4 algorithm is a (nearly) symmetrical stream cipher. The only difference being: 
+									When encrypting, you add the keystream value to the plaintext, and when decrypting, you subtract 
+									the keystream value from the ciphertext.</p>
+									
+									<h4>Prepare the Key Deck</h4>
+									<p>The key deck needs to be rearranged so that it maintains the same order within cards of 
+									the same colour, but cards in the deck must alternate between colours, starting with red on top.</p>
+									
+									<ol style="list-style: decimal; margin-left: 20px;">
+										<li>Take the key deck, face up.</li>
+										<li>Deal each card from the key deck into either a red pile, or a black pile. Both piles must be face up and be sure to preserve the order exactly.</li>
+										<li>Make a new pile, face up, by interleaving the two piles. This is done starting with the first black card, then the first red card, the second black card, second red, and so on. The new pile should have a red card on top and alternate between red and black cards.</li>
+									</ol>
+									
+									<h4>Randomise the Key Deck with the Initialisation Vector (IV)</h4>
+									<p>The pseudorandom initial deck ordering needs to be generated.</p>
+									
+									<ol style="list-style: decimal; margin-left: 20px;" start=4>
+										<li>Take the key deck, face up.</li>
+										<li>For each card in the IV sequence do the following:</li>
+										<ol style="list-style: decimal; margin-left: 20px;">
+											<li>Move the top red card to the bottom of the deck.</li>
+											<li>Find the black card in the key deck that has the same value as the current IV card.</li>
+											<li>Move the red card above this black card to the top of the deck.</li>
+											<li>Move the black card to the bottom of the deck.</li>
+											<li>Moce the top two cards (one red, one black) to the bottom of the deck.</li>
+										</ol>
+									</ol>
+									
+									<h4>Encrypt the Plaintext Message</h4>
+									
+									<ol style="list-style: decimal; margin-left: 20px;" start=6>
+										<li>Take the key deck, face up.</li>
+										<li>For each letter in the plaintext do the following:</li>
+										<ol style="list-style: decimal; margin-left: 20px;">
+											<li>Set j to the value of the bottom red card.</li>
+											<li>Add the value of the top red card to j, modulo 27.</li>
+											<li>Find the black card with the value of j.</li>
+											<li>Set k to the value of the red card above the j black card plus the value of the top red card, modulo 27.</li>
+											<li>Set k to the value of the plaintext letter plus k, modulo 27.</li>
+											<li>Write down the corresponding ciphertext character, which has the value of k.</li>
+											<li>Exchange the red card above the j black card with the top red card.</li>
+											<li>Move the top black/red card pair to the bottom.</li>
+										</ol>
+									</ol>
+									
+									<h4>Decrypt the Ciphertext Message</h4>
+									
+									<ol style="list-style: decimal; margin-left: 20px;" start=6>
+										<li>Take the key deck, face up.</li>
+										<li>For each letter in the ciphertext do the following:</li>
+										<ol style="list-style: decimal; margin-left: 20px;">
+											<li>Set j to the value of the bottom red card.</li>
+											<li>Add the value of the top red card to j, modulo 27.</li>
+											<li>Find the black card with the value of j.</li>
+											<li>Set k to the value of the red card above the j black card plus the value of the top red card, modulo 27.</li>
+											<li>Set k to the value of the ciphertext letter minus k, modulo 27.</li>
+											<li>Write down the corresponding plaintext character, which has the value of k.</li>
+											<li>Exchange the red card above the j black card with the top red card.</li>
+											<li>Move the top black/red card pair to the bottom.</li>
+										</ol>
+									</ol>
+									
+									<h3 id="code_example">Code Example</h3>
+									<p>The following is a barebones example, and tries to do things as simply as possible; which 
+									ignores a lot of good coding practices, as well as places where the implementation can be made 
+									faster and/or more efficient.</p>
+									
+									<script>
+									$(function(){
+										console.warn("The code is not loading!");
+										$("codeExample").load("/code/Pocket-RC4.py");
+									});
+									</script>
+									
+									<pre  class="line-numbers" data-src="/code/Pocket-RC4.py"></pre>
+									
+									<h3>Interactive Demo</h3>
+									
+									<script src="pocket_rc4.js"></script>
+									
+									<form>
+										<div class="row 50%">
+											<div class="6u 12u(mobilep)">
+												<input type="text" name="key_deck" id="key_deck" placeholder="Face Up Keyed Deck" />
+											</div>
+											<div class="6u 12u(mobilep)">
+												<input type="text" name="initialisation_vector" id="initialisation_vector" placeholder="Initialisation Vector" />
+											</div>
+										</div>
+										<div class="row 50%">
+											<div class="12u">
+												<textarea name="plaintext" id="plaintext" placeholder="Plaintext Message" rows="5"></textarea>
+											</div>
+											<div class="12u">
+												<textarea name="ciphertext" id="ciphertext" placeholder="Ciphertext" rows="5"></textarea>
+											</div>
+										</div>
+										<div class="row 50%">
+											<div>
+												<ul class="actions">
+													<li><input type="button" class="button alt" value="Encrypt Message" onclick="encrypt_on_click();"/></li>
+													<li><input type="button" class="button alt" value="Decrypt Message" onclick="decrypt_on_click();"/></li>
+												</ul>
+											</div>
+											<div style="float: right;">
+												<ul class="actions">
+													<li><input type="button" class="button" value="Load Example" onclick="load_example_on_click();"/></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+									
+									<h3>Afterthoughs and Variations</h3>
+									* The jokers can be excluded to produce a alphabet without spaces, a subtle variation on the algorithm would be required for this. This seems unnecessary, because the presense of jokers increases the cryptographic strength of the algorithm. You may want to remove the jokers if you are in a region or near a game that does not typically use jokers.<br>
+									* The cards don't need to be assigned to the standard latin alphabet, you could swap them with characters from other writing systems. The space could be replaced with a ß, for German. A c could be repalced with an é for Afrikaans. In alphabets that contain less tahn 26 characters, the remaining cards can be used to duplicate letters, this will maintain cryptographic strength. If your alphabet contains more than 26 letters, you may build an encoding system that can store the alphabet in 26-space.
+								</article>
+
+						</div>
+					</div>
+				</section>
+
+			<!-- Footer -->
+				<div id="footer">
+					<div class="container">
+						<div class="row">
+							<section class="3u 6u(narrower) 12u$(mobilep)">
+								<h3>Links to Stuff</h3>
+								<ul class="links">
+									<li><a href="#">Mattis et quis rutrum</a></li>
+									<li><a href="#">Suspendisse amet varius</a></li>
+									<li><a href="#">Sed et dapibus quis</a></li>
+									<li><a href="#">Rutrum accumsan dolor</a></li>
+									<li><a href="#">Mattis rutrum accumsan</a></li>
+									<li><a href="#">Suspendisse varius nibh</a></li>
+									<li><a href="#">Sed et dapibus mattis</a></li>
+								</ul>
+							</section>
+							<section class="3u 6u$(narrower) 12u$(mobilep)">
+								<h3>More Links to Stuff</h3>
+								<ul class="links">
+									<li><a href="#">Duis neque nisi dapibus</a></li>
+									<li><a href="#">Sed et dapibus quis</a></li>
+									<li><a href="#">Rutrum accumsan sed</a></li>
+									<li><a href="#">Mattis et sed accumsan</a></li>
+									<li><a href="#">Duis neque nisi sed</a></li>
+									<li><a href="#">Sed et dapibus quis</a></li>
+									<li><a href="#">Rutrum amet varius</a></li>
+								</ul>
+							</section>
+							<section class="6u 12u(narrower)">
+								<h3>Get In Touch</h3>
+								<form>
+									<div class="row 50%">
+										<div class="6u 12u(mobilep)">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="6u 12u(mobilep)">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+									</div>
+									<div class="row 50%">
+										<div class="12u">
+											<textarea name="message" id="message" placeholder="Message" rows="5"></textarea>
+										</div>
+									</div>
+									<div class="row 50%">
+										<div class="12u">
+											<ul class="actions">
+												<li><input type="submit" class="button alt" value="Send Message" /></li>
+											</ul>
+										</div>
+									</div>
+								</form>
+							</section>
+						</div>
+					</div>
+
+					<!-- Icons -->
+						<ul class="icons">
+							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://github.com/IgniparousTempest" class="icon fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						</ul>
+
+					<!-- Copyright -->
+						<div class="copyright">
+							<ul class="menu">
+								<li>&copy; Courtney Pitcher. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/jquery.dropotron.min.js"></script>
+			<script src="/assets/js/skel.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="/assets/js/main.js"></script>
+
+	</body>
+</html>

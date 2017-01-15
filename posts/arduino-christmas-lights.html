@@ -103,6 +103,17 @@
 									</div>
 									
 									<h3>Math</h3>
+									<style>
+									.flex-container {
+									    display: -webkit-flex;
+									    display: flex;
+									    -webkit-flex-wrap: wrap;
+									    flex-wrap: wrap;
+									    width: 100%;
+									    height: 100%;
+									}
+									</style>
+									
 									<p>The following shows the process of calculating the values for the resistors used in the 
 									low side switch. </p>
 									<img width="30%" style="display: block; margin-left: auto; margin-right: auto;" src="/images/NPN_low_switch.svg"/>
@@ -119,19 +130,27 @@
 									\(V_{pin 9}=5V\), Voltage from Arduino I/0 pin.<br>
 									\(V_{BE}=0.7V\), Voltage drop over PN junction of transistor.
 									</p>
-									<p>
+									
 									To find \(R_{B}\):<br>
-									\(I_{B}=\frac{I_{C}}{10}=\frac{40mA}{10}=4mA\)<br>
-									\(R_{B}=\frac{V_{R_{B}}}{I_{B}}=\frac{V_{pin 9}-V_{BE}}{I_{B}}=\frac{5-0.7}{4mA}=1075\Omega\approx1k\Omega\)
-									</p>
-									<p>
+									<div class="flex-container">
+										\(I_{B}=\frac{I_{C}}{10}\)\(=\frac{40mA}{10}=4mA\)
+									</div>
+									<div class="flex-container">
+										\(R_{B}=\frac{V_{R_{B}}}{I_{B}}\)\(=\frac{V_{pin 9}-V_{BE}}{I_{B}}=\frac{5-0.7}{4mA}\)\(=1075\Omega\approx1k\Omega\)
+									</div>
+									<br>
+									
 									To find \(n\), number of resistors in series:<br>
-									\(n=\lfloor\frac{V_{in}-V_{CE}}{V_{L}}\rfloor=\lfloor\frac{12-0.2}{1.8}\rfloor=\lfloor6.\dot{5}\rfloor=6\)
-									</p>
-									<p>
+									<div class="flex-container">
+										\(n=\lfloor\frac{V_{in}-V_{CE}}{V_{L}}\rfloor\)\(=\lfloor\frac{12-0.2}{1.8}\rfloor=\lfloor6.\dot{5}\rfloor=6\)
+									</div>
+									<br>
+										
 									To find \(R_{C}\):<br>
-									\(R_{C}=\frac{V_{in}-V_{CE}-V_{L}\times n}{I_{R_{C}}}=\frac{12-0.2-1.8\times6}{40mA}=\frac{1}{0.04}=25\Omega\approx27\Omega\)
-									</p>
+									<div class="flex-container">
+										\(R_{C}=\frac{V_{in}-V_{CE}-V_{L}\times n}{I_{R_{C}}}\)\(=\frac{12-0.2-1.8\times6}{40mA}=\frac{1}{0.04}\)\(=25\Omega\approx27\Omega\)
+									</div>
+									<br>
 								</article>
 
 						</div>

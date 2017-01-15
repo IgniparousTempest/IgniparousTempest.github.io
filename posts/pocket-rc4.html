@@ -119,34 +119,34 @@
 									    height: 100%;
 									}
 
-									.table {
+									.div_table {
 									    text-align: center;
 									    display:table;
 									}
-									.left_table {
+									.left_div_table {
 									    border-collapse: separate;
 									    -webkit-border-radius: 5px 0px 0px 5px;
 									    -moz-border-radius: 5px 0px 0px 5px;
 									    border-radius: 5px 0px 0px 5px;
 									}
-									.right_table {
+									.right_div_table {
 									    border-collapse: separate;
 									    -webkit-border-radius: 0px 5px 5px 0px;
 									    -moz-border-radius: 0px 5px 5px 0px;
 									    border-radius: 0px 5px 5px 0px;
 									}
-									.left_table, .right_table, .outer_table{
+									.left_div_table, .right_div_table, .outer_div_table{
 									    border: 1px solid black;
 									    margin-bottom: 10px;
 									    overflow: scroll;
 									}
-									.heading {
+									.div_heading {
 									    font-weight:bold;
 									    width: 100%;
 									    display: table-header-group;
 									    border-bottom: 1px solid black;
 									}
-									.row {
+									.div_row {
 									    display:table-row;
 									    border: 1px solid black;
 									}
@@ -183,15 +183,15 @@
 									    border-top: none;
 									    border-bottom: none;
 									}
-									.row:before, .row:after {
+									.div_row:before, .div_row:after {
 									    content: none;
 									}
 									</style>
 									<div class="flex-container">
-									   <div class='table left_table'>
-									      <div class='heading'><div class='cell cell_heading'>Hearts and Spades</div></div>
-									      <div class='table'>
-										 <div class='heading'>
+									   <div class='div_table left_div_table'>
+									      <div class='div_heading'><div class='cell cell_heading'>Hearts and Spades</div></div>
+									      <div class='div_table'>
+										 <div class='div_heading'>
 										    <div class='cell cell_middle'>Ace</div>
 										    <div class='cell cell_middle'>2</div>
 										    <div class='cell cell_middle'>3</div>
@@ -206,7 +206,7 @@
 										    <div class='cell cell_middle'>Queen</div>
 										    <div class='cell cell_middle_right'>King</div>
 										 </div>
-										 <div class='row'>
+										 <div class='div_row'>
 										    <div class='cell cell_middle'>1</div>
 										    <div class='cell cell_middle'>2</div>
 										    <div class='cell cell_middle'>3</div>
@@ -221,7 +221,7 @@
 										    <div class='cell cell_middle'>12</div>
 										    <div class='cell cell_middle_right'>13</div>
 										 </div>
-										 <div class='row'>
+										 <div class='div_row'>
 										    <div class='cell cell_bottom'>a</div>
 										    <div class='cell cell_bottom'>b</div>
 										    <div class='cell cell_bottom'>c</div>
@@ -238,10 +238,10 @@
 										 </div>
 									      </div>
 									   </div>
-									   <div class='table outer_table'>
-									      <div class='heading'><div class='cell cell_heading'>Diamonds and Clubs</div></div>
-									      <div class='table'>
-										 <div class='heading'>
+									   <div class='div_table outer_div_table'>
+									      <div class='div_heading'><div class='cell cell_heading'>Diamonds and Clubs</div></div>
+									      <div class='div_table'>
+										 <div class='div_heading'>
 										    <div class='cell cell_middle'>Ace</div>
 										    <div class='cell cell_middle'>2</div>
 										    <div class='cell cell_middle'>3</div>
@@ -256,7 +256,7 @@
 										    <div class='cell cell_middle'>Queen</div>
 										    <div class='cell cell_middle_right'>King</div>
 										 </div>
-										 <div class='row'>
+										 <div class='div_row'>
 										    <div class='cell cell_middle'>14</div>
 										    <div class='cell cell_middle'>15</div>
 										    <div class='cell cell_middle'>16</div>
@@ -271,7 +271,7 @@
 										    <div class='cell cell_middle'>25</div>
 										    <div class='cell cell_middle_right'>26</div>
 										 </div>
-										 <div class='row'>
+										 <div class='div_row'>
 										    <div class='cell cell_bottom'>n</div>
 										    <div class='cell cell_bottom'>o</div>
 										    <div class='cell cell_bottom'>p</div>
@@ -288,16 +288,16 @@
 										 </div>
 									      </div>
 									   </div>
-									   <div class='table right_table'>
-									      <div class='heading'><div class='cell cell_heading'>Joker</div></div>
-									      <div class='table'>
-										 <div class='heading'>
+									   <div class='div_table right_div_table'>
+									      <div class='div_heading'><div class='cell cell_heading'>Joker</div></div>
+									      <div class='div_table'>
+										 <div class='div_heading'>
 										    <div class='cell cell_middle_right'>Joker</div>
 										 </div>
-										 <div class='row'>
+										 <div class='div_row'>
 										    <div class='cell cell_middle_right'>27</div>
 										 </div>
-										 <div class='row'>
+										 <div class='div_row'>
 										    <div class='cell cell_bottom_right'>Space</div>
 										 </div>
 									      </div>

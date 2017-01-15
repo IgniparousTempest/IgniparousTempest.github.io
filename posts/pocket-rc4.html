@@ -110,33 +110,199 @@
 									to letters in alphabetical order, with jokers being space, is the easiest, see below.
 									
 									<style>
-									table {
-										border-collapse: separate;
-										-webkit-border-radius: 5px;
-										-moz-border-radius: 5px;
-										border-radius: 5px;
-										text-align: center;
-										border: 1px solid black;
+									.flex-container {
+									    display: -webkit-flex;
+									    display: flex;
+									    -webkit-flex-wrap: wrap;
+									    flex-wrap: wrap;
+									    width: 100%;
+									    height: 100%;
 									}
 
-									th, td {
-										border-left:solid black 1px;
-										border-top:solid black 1px;
-										text-align: center;
+									.table {
+									    text-align: center;
+									    display:table;
 									}
-									
-									th {
-										font-weight:bold;
-										border-top: none;
+									.left_table {
+									    border-collapse: separate;
+									    -webkit-border-radius: 5px 0px 0px 5px;
+									    -moz-border-radius: 5px 0px 0px 5px;
+									    border-radius: 5px 0px 0px 5px;
+									    border: 1px solid black;
 									}
-
-									td:first-child, th:first-child {
-										border-left: none;
+									.right_table {
+									    border-collapse: separate;
+									    -webkit-border-radius: 0px 5px 5px 0px;
+									    -moz-border-radius: 0px 5px 5px 0px;
+									    border-radius: 0px 5px 5px 0px;
+									    border: 1px solid black;
 									}
-									
-									.bold{font-weight:bold !important;}
+									.outer_table {
+									    border: 1px solid black;
+									}
+									.heading {
+									    font-weight:bold;
+									    width: 100%;
+									    display: table-header-group;
+									    border-bottom: 1px solid black;
+									}
+									.row {
+									    display:table-row;
+									    border: 1px solid black;
+									}
+									.cell {
+									    display:table-cell;
+									    width: 50%;
+									    border: 1px solid black;
+									    padding: 2px;
+									    float: none;
+									}
+									.cell_heading {
+									    width: 0%;
+									    border-left: none;
+									    border-right: none;
+									    border-top: none;
+									}
+									.cell_middle {
+									    border-left: none;
+									    border-top: none;
+									}
+									.cell_middle_right {
+									    border-left: none;
+									    border-right: none;
+									    border-top: none;
+									}
+									.cell_bottom {
+									    border-left: none;
+									    border-top: none;
+									    border-bottom: none;
+									}
+									.cell_bottom_right {
+									    border-left: none;
+									    border-right: none;
+									    border-top: none;
+									    border-bottom: none;
+									}
+									.row:before, .row:after {
+									    content: none;
+									}
 									</style>
-									<table><tr><th colspan="13">Hearts and Spades</th><th colspan="13">Diamonds and Clubs</th><th>Joker</th></tr><tr><td class="bold">Ace</td><td class="bold">2</td><td class="bold">3</td><td class="bold">4</td><td class="bold">5</td><td class="bold">6</td><td class="bold">7</td><td class="bold">8</td><td class="bold">9</td><td class="bold">10</td><td class="bold">Jack</td><td class="bold">Queen</td><td class="bold">King</td><td class="bold">Ace</td><td class="bold">2</td><td class="bold">3</td><td class="bold">4</td><td class="bold">5</td><td class="bold">6</td><td class="bold">7</td><td class="bold">8</td><td class="bold">9</td><td class="bold">10</td><td class="bold">Jack</td><td class="bold">Queen</td><td class="bold">King</td><td class="bold">Joker</td></tr><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td></tr><tr><td>a</td><td>b</td><td>c</td><td>d</td><td>e</td><td>f</td><td>g</td><td>h</td><td>i</td><td>j</td><td>k</td><td>l</td><td>m</td><td>n</td><td>o</td><td>p</td><td>q</td><td>r</td><td>s</td><td>t</td><td>u</td><td>v</td><td>w</td><td>x</td><td>y</td><td>z</td><td>␣</td></tr></table>
+									<div class="flex-container">
+									   <div class='table left_table'>
+									      <div class='heading'><div class='cell cell_heading'>Hearts and Spades</div></div>
+									      <div class='table'>
+										 <div class='heading'>
+										    <div class='cell cell_middle'>Ace</div>
+										    <div class='cell cell_middle'>2</div>
+										    <div class='cell cell_middle'>3</div>
+										    <div class='cell cell_middle'>4</div>
+										    <div class='cell cell_middle'>5</div>
+										    <div class='cell cell_middle'>6</div>
+										    <div class='cell cell_middle'>7</div>
+										    <div class='cell cell_middle'>8</div>
+										    <div class='cell cell_middle'>9</div>
+										    <div class='cell cell_middle'>10</div>
+										    <div class='cell cell_middle'>Jack</div>
+										    <div class='cell cell_middle'>Queen</div>
+										    <div class='cell cell_middle_right'>King</div>
+										 </div>
+										 <div class='row'>
+										    <div class='cell cell_middle'>1</div>
+										    <div class='cell cell_middle'>2</div>
+										    <div class='cell cell_middle'>3</div>
+										    <div class='cell cell_middle'>4</div>
+										    <div class='cell cell_middle'>5</div>
+										    <div class='cell cell_middle'>6</div>
+										    <div class='cell cell_middle'>7</div>
+										    <div class='cell cell_middle'>8</div>
+										    <div class='cell cell_middle'>9</div>
+										    <div class='cell cell_middle'>10</div>
+										    <div class='cell cell_middle'>11</div>
+										    <div class='cell cell_middle'>12</div>
+										    <div class='cell cell_middle_right'>13</div>
+										 </div>
+										 <div class='row'>
+										    <div class='cell cell_bottom'>a</div>
+										    <div class='cell cell_bottom'>b</div>
+										    <div class='cell cell_bottom'>c</div>
+										    <div class='cell cell_bottom'>d</div>
+										    <div class='cell cell_bottom'>e</div>
+										    <div class='cell cell_bottom'>f</div>
+										    <div class='cell cell_bottom'>g</div>
+										    <div class='cell cell_bottom'>h</div>
+										    <div class='cell cell_bottom'>i</div>
+										    <div class='cell cell_bottom'>j</div>
+										    <div class='cell cell_bottom'>k</div>
+										    <div class='cell cell_bottom'>l</div>
+										    <div class='cell cell_bottom_right'>m</div>
+										 </div>
+									      </div>
+									   </div>
+									   <div class='table outer_table'>
+									      <div class='heading'><div class='cell cell_heading'>Diamonds and Clubs</div></div>
+									      <div class='table'>
+										 <div class='heading'>
+										    <div class='cell cell_middle'>Ace</div>
+										    <div class='cell cell_middle'>2</div>
+										    <div class='cell cell_middle'>3</div>
+										    <div class='cell cell_middle'>4</div>
+										    <div class='cell cell_middle'>5</div>
+										    <div class='cell cell_middle'>6</div>
+										    <div class='cell cell_middle'>7</div>
+										    <div class='cell cell_middle'>8</div>
+										    <div class='cell cell_middle'>9</div>
+										    <div class='cell cell_middle'>10</div>
+										    <div class='cell cell_middle'>Jack</div>
+										    <div class='cell cell_middle'>Queen</div>
+										    <div class='cell cell_middle_right'>King</div>
+										 </div>
+										 <div class='row'>
+										    <div class='cell cell_middle'>14</div>
+										    <div class='cell cell_middle'>15</div>
+										    <div class='cell cell_middle'>16</div>
+										    <div class='cell cell_middle'>17</div>
+										    <div class='cell cell_middle'>18</div>
+										    <div class='cell cell_middle'>19</div>
+										    <div class='cell cell_middle'>20</div>
+										    <div class='cell cell_middle'>21</div>
+										    <div class='cell cell_middle'>22</div>
+										    <div class='cell cell_middle'>23</div>
+										    <div class='cell cell_middle'>24</div>
+										    <div class='cell cell_middle'>25</div>
+										    <div class='cell cell_middle_right'>26</div>
+										 </div>
+										 <div class='row'>
+										    <div class='cell cell_bottom'>n</div>
+										    <div class='cell cell_bottom'>o</div>
+										    <div class='cell cell_bottom'>p</div>
+										    <div class='cell cell_bottom'>q</div>
+										    <div class='cell cell_bottom'>r</div>
+										    <div class='cell cell_bottom'>s</div>
+										    <div class='cell cell_bottom'>t</div>
+										    <div class='cell cell_bottom'>u</div>
+										    <div class='cell cell_bottom'>v</div>
+										    <div class='cell cell_bottom'>w</div>
+										    <div class='cell cell_bottom'>x</div>
+										    <div class='cell cell_bottom'>y</div>
+										    <div class='cell cell_bottom_right'>z</div>
+										 </div>
+									      </div>
+									   </div>
+									   <div class='table right_table'>
+									      <div class='heading'><div class='cell cell_heading'>Joker</div></div>
+									      <div class='table'>
+										 <div class='heading'>
+										    <div class='cell cell_middle_right'>Joker</div>
+										 </div>
+										 <div class='row'>
+										    <div class='cell cell_middle_right'>27</div>
+										 </div>
+										 <div class='row'>
+										    <div class='cell cell_bottom_right'>Space</div>
+										 </div>
+									      </div>
+									   </div>
+									</div>
 									
 									<h3>Algorithm</h3>
 									<p>The Pocket-RC4 algorithm is a (nearly) symmetrical stream cipher. The only difference being: 

@@ -1,0 +1,51 @@
+- title: Pocket-RC4
+  description: Encryption using a deck of cards for the spy on the go!
+  link: /posts/pocket-rc4.html
+  image: /images/playing_cards_in_hand.jpg
+  date-published: 
+  tags:
+  - software
+  - cipher
+
+- title: Morse Code Christmas Lights
+  description: Flashing and pulsing LEDs using PWM, controlled by an Arduino.
+  link: /posts/arduino-christmas-lights.html
+  image: /images/title_led.png
+  date-published: 
+  tags:
+  - hardware
+  - arduino
+
+- title: 555 Timer Alarm With AC-DC Converter
+  description: Article under construction
+  link: /posts/555-timer-alarm.html
+  image: /images/title_555_timer.png
+  date-published: 
+  tags:
+  - hardware
+
+- title: Resistor Colour Code Chart
+  description: A handy chart that tops the usual colour code table.
+  link: /posts/resistor-colour-codes.html
+  image: /images/title_Resistor Colour Chart.png
+  date-published: 
+  tags:
+  - hardware
+  - arduino
+
+- title: What to do after Arduino?
+  description: If you're a hobbyist or a maker that has become confident with an Arduino and you want to know what to do next.
+  link: /posts/arduino-to-pic.html
+  image: /images/title_question_mark.png
+  date-published: 
+  tags:
+  - hardware
+  - arduino
+
+- title: Why I like the Pocket-RC4 encyption algorithm.
+  description: Some people attach fond memories to smells or locations, I attach mine to encryption algorithms. (<a href="http://redchiffon.deviantart.com/art/The-Ace-of-Hearts-94329010">Image Source</a>)
+  link: /posts/personal/2016-12-05_why_i_like_pocket-rc4.html
+  image: /images/ace_of_hearts.jpg
+  date-published: 
+  tags:
+  - personal

@@ -76,6 +76,14 @@
 						</div>
 					</div>
 				</section>
+				
+				<ul>
+				{% for post in site.data.posts %}
+					<li>
+						{{ post.title }}, {{ post.description }}, <a href="{{ post.link }}">link</a>, <a href="{{ post.image }}">image</a>, {{ post.tags }}
+					</li>
+				{% endfor %}
+				</ul>
 
 			<!-- Footer -->
 				<script> 

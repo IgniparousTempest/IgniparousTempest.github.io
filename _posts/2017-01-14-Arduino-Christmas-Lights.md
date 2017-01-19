@@ -2,7 +2,7 @@
 layout: post
 title: Morse Code Christmas Lights Powered by an Arduino
 image: https://igniparoustempest.github.io/images/svg/title_LED.svg
-tags:
+categories:
 - electronics
 - arduino
 include:

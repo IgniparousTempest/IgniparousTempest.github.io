@@ -21,5 +21,7 @@ a.button {
 }
 </style>
 
-<a href="https://igniparoustempest.github.io/images/Resistor%20Colour%20Chart.svg" class="button" download>Download SVG</a>
-<a href="https://igniparoustempest.github.io/images/Resistor%20Colour%20Chart.png" class="button" download>Download PNG</a>
+<div style="text-align: center;">
+	<a href="https://igniparoustempest.github.io/images/Resistor%20Colour%20Chart.svg" class="button" download>Download SVG</a>
+	<a href="https://igniparoustempest.github.io/images/Resistor%20Colour%20Chart.png" class="button" download>Download PNG</a>
+</div>

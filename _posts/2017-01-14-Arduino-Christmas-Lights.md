@@ -37,33 +37,35 @@ The following shows the process of calculating the values for the resistors used
 
 <img width="30%" style="display: block; margin-left: auto; margin-right: auto;"  title="NPN Low Side Switch Schematic" src="http://igniparoustempest.github.io/images/NPN_low_switch.svg"/>
 
-We want:<br>
-\(I_{L}=40mA\), the current will be the same in all LEDs in series.
+<div>
+	We want:<br>
+	\(I_{L}=40mA\), the current will be the same in all LEDs in series.
 
-We Know:<br>
-\(V_{in}=12V\)<br>
-\(V_{CE}=0.2V\), transistor voltage drop when the transistor is saturated.<br>
-\(V_{L}=1.8V\), LED voltage drop.<br>
-\(I_{B}\ge\frac{I_{C}}{10}\), percent of current at base to cause saturation.<br>
-\(V_{pin 9}=5V\), Voltage from Arduino I/0 pin.<br>
-\(V_{BE}=0.7V\), Voltage drop over PN junction of transistor.
+	We Know:<br>
+	\(V_{in}=12V\)<br>
+	\(V_{CE}=0.2V\), transistor voltage drop when the transistor is saturated.<br>
+	\(V_{L}=1.8V\), LED voltage drop.<br>
+	\(I_{B}\ge\frac{I_{C}}{10}\), percent of current at base to cause saturation.<br>
+	\(V_{pin 9}=5V\), Voltage from Arduino I/0 pin.<br>
+	\(V_{BE}=0.7V\), Voltage drop over PN junction of transistor.
 
-To find \(R_{B}\):<br>
-<div class="flex-container">
-	\(I_{B}=\frac{I_{C}}{10}\)\(=\frac{40mA}{10}=4mA\)
-</div>
-<div class="flex-container">
-	\(R_{B}=\frac{V_{R_{B}}}{I_{B}}\)\(=\frac{V_{pin 9}-V_{BE}}{I_{B}}=\frac{5-0.7}{4mA}\)\(=1075\Omega\approx1k\Omega\)
-</div>
-<br>
+	To find \(R_{B}\):<br>
+	<div class="flex-container">
+		\(I_{B}=\frac{I_{C}}{10}\)\(=\frac{40mA}{10}=4mA\)
+	</div>
+	<div class="flex-container">
+		\(R_{B}=\frac{V_{R_{B}}}{I_{B}}\)\(=\frac{V_{pin 9}-V_{BE}}{I_{B}}=\frac{5-0.7}{4mA}\)\(=1075\Omega\approx1k\Omega\)
+	</div>
+	<br>
 
-To find \(n\), number of resistors in series:<br>
-<div class="flex-container">
-	\(n=\lfloor\frac{V_{in}-V_{CE}}{V_{L}}\rfloor\)\(=\lfloor\frac{12-0.2}{1.8}\rfloor=\lfloor6.\dot{5}\rfloor=6\)
-</div>
-<br>
-	
-To find \(R_{C}\):<br>
-<div class="flex-container">
-	\(R_{C}=\frac{V_{in}-V_{CE}-V_{L}\times n}{I_{R_{C}}}\)\(=\frac{12-0.2-1.8\times6}{40mA}=\frac{1}{0.04}\)\(=25\Omega\approx27\Omega\)
+	To find \(n\), number of resistors in series:<br>
+	<div class="flex-container">
+		\(n=\lfloor\frac{V_{in}-V_{CE}}{V_{L}}\rfloor\)\(=\lfloor\frac{12-0.2}{1.8}\rfloor=\lfloor6.\dot{5}\rfloor=6\)
+	</div>
+	<br>
+		
+	To find \(R_{C}\):<br>
+	<div class="flex-container">
+		\(R_{C}=\frac{V_{in}-V_{CE}-V_{L}\times n}{I_{R_{C}}}\)\(=\frac{12-0.2-1.8\times6}{40mA}=\frac{1}{0.04}\)\(=25\Omega\approx27\Omega\)
+	</div>
 </div>

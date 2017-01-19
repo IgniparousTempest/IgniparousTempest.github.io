@@ -1,12 +1,14 @@
 ---
 layout: post
 title: Morse Code Christmas Lights Powered by an Arduino
+subtitle: Chrismas Lights for the Kidnapped Tree.
 image: https://igniparoustempest.github.io/images/svg/title_LED.svg
 categories:
 - electronics
 - arduino
 include:
 - mathjax
+- prism c
 ---
 
 This is a rather simple project, that uses an arduino to flash and pulse lights, the pattern of flashes and pulses can be used to signal Morse code messages.

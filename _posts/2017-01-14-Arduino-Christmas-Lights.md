@@ -39,16 +39,18 @@ The following shows the process of calculating the values for the resistors used
 
 <div>
 	We want:<br>
-	\(I_{L}=40mA\), the current will be the same in all LEDs in series.
-
+	\(I_{L}=40mA\), the current will be the same in all LEDs in series.<br>
+	<br>
+	
 	We Know:<br>
 	\(V_{in}=12V\)<br>
 	\(V_{CE}=0.2V\), transistor voltage drop when the transistor is saturated.<br>
 	\(V_{L}=1.8V\), LED voltage drop.<br>
 	\(I_{B}\ge\frac{I_{C}}{10}\), percent of current at base to cause saturation.<br>
 	\(V_{pin 9}=5V\), Voltage from Arduino I/0 pin.<br>
-	\(V_{BE}=0.7V\), Voltage drop over PN junction of transistor.
-
+	\(V_{BE}=0.7V\), Voltage drop over PN junction of transistor.<br>
+	<br>
+	
 	To find \(R_{B}\):<br>
 	<div class="flex-container">
 		\(I_{B}=\frac{I_{C}}{10}\)\(=\frac{40mA}{10}=4mA\)

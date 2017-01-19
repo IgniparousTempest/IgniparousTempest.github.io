@@ -21,9 +21,13 @@ layout: default
 		{{ page.date | date: " day of %B  in the year of Our Lord " }}
 		{% assign year = page.date | date: "%Y"  %}
 		{% case year %}
+			{% when '2014' %}Two Thousand and Fourteen
+			{% when '2015' %}Two Thousand and Fifteen
 			{% when '2016' %}Two Thousand and Sixteen
 			{% when '2017' %}Two Thousand and Seventeen
 			{% when '2018' %}Two Thousand and Eighteen
+			{% when '2018' %}Two Thousand and Nineteen
+			{% when '2018' %}Two Thousand and Twenty
 			{% else %}Unknown ({{ year }})
 		{% endcase %}
 	</div>

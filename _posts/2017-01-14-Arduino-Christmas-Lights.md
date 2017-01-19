@@ -70,4 +70,5 @@ The following shows the process of calculating the values for the resistors used
 	<div class="flex-container">
 		\(R_{C}=\frac{V_{in}-V_{CE}-V_{L}\times n}{I_{R_{C}}}\)\(=\frac{12-0.2-1.8\times6}{40mA}=\frac{1}{0.04}\)\(=25\Omega\approx27\Omega\)
 	</div>
+	<br>
 </div>

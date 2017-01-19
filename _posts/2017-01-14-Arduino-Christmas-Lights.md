@@ -37,7 +37,7 @@ The following shows the process of calculating the values for the resistors used
 
 <img width="30%" style="display: block; margin-left: auto; margin-right: auto;"  title="NPN Low Side Switch Schematic" src="http://igniparoustempest.github.io/images/NPN_low_switch.svg"/>
 
-<div>
+<div style="line-height: 150%;">
 	We want:<br>
 	\(I_{L}=40mA\), the current will be the same in all LEDs in series.<br>
 	<br>

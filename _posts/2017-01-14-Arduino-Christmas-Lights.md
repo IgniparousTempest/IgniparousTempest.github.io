@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Morse Code Christmas Lights Powered by an Arduino
-include_mathjax: Yes
+include:
+- mathjax
 ---
 
 This is a rather simple project, that uses an arduino to flash and pulse lights, the pattern of flashes and pulses can be used to signal Morse code messages.

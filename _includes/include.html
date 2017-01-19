@@ -1,0 +1,9 @@
+{% if page.include %}
+	{% for js_file in page.include %}
+	<script src='/javascripts/{{ js_file }}.js' type="text/javascript"></script>
+	{% endfor %}
+	{% case shipping_method.title %}
+		{% when 'mathjax' %}
+			<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+	{% endcase %}
+{% endif %}

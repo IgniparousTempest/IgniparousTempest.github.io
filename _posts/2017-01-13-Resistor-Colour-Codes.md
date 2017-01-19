@@ -2,6 +2,9 @@
 layout: post
 title: Resistor Code Colour Chart
 image: https://igniparoustempest.github.io/images/svg/resistor.svg
+tags:
+- electronics
+- arduino
 include:
 - mathjax
 ---

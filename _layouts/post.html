@@ -3,15 +3,30 @@ layout: default
 ---
 
 <article class="post">
-  <h1>{{ page.title }}</h1>
+	<h1>{{ page.title }}</h1>
 
-  <div class="entry">
-    {{ content }}
-  </div>
+	<div class="entry">
+		{{ content }}
+	</div>
 
-  <div class="date">
-    Written on {{ page.date | date: "%B %e, %Y" }}
-  </div>
+	<div class="date">
+		Written on the
+		{% assign day = page.date | date: "%-d"  %}
+		{% case day %}
+			{% when '1' or '21' or '31' %}{{ day }}st
+			{% when '2' or '22' %}{{ day }}nd
+			{% when '3' or '23' %}{{ day }}rd
+			{% else %}{{ day }}th
+		{% endcase %}
+		{{ page.date | date: " day of %B  in the year of Our Lord " }}
+		{% assign year = page.date | date: "%Y"  %}
+		{% case year %}
+			{% when '2016' %}Two Thousand and Sixteen
+			{% when '2017' %}Two Thousand and Seventeen
+			{% when '2018' %}Two Thousand and Eighteen
+			{% else %}Unknown ({{ year }})
+		{% endcase %}
+	</div>
 
-  {% include disqus.html %}
+	{% include disqus.html %}
 </article>

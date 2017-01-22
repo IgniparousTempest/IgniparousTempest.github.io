@@ -1,11 +1,12 @@
 {% if page.include %}
 	{% for include_script in page.include %}
-		{% case include_script %}
+	  {% assign include_params = include_script | split:" " %}
+		{% case include_params[0] %}
 			{% when 'mathjax' %}
 				<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 			{% when 'jquery' %}
 				<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-			{% when 'prism python' %}
+			{% when 'prism' %}
 				<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism-okaidia.min.css">
 				<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/file-highlight/prism-file-highlight.min.js"></script>
@@ -15,6 +16,13 @@
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/line-numbers/prism-line-numbers.min.css">
 				<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
 				<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-python.min.js"></script>
+				{% case include_params[1] %}
+					{% when 'c' %}
+						<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-clike.min.js"></script>
+						<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-c.min.js"></script>
+					{% when 'python' %}
+						<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-python.min.js"></script>
+				{% endcase %}
 		{% endcase %}
 	{% endfor %}
 {% endif %}

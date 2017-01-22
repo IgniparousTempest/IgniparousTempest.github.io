@@ -35,7 +35,9 @@ The led chain is made up of a single LED colour, otherwise only the colour with 
 
 ## Code
 
-Here is code use to control the lights, it is explained in the comments.
+Here is code use to control the lights, it is explained in the comments. Test
+
+<pre  class="language-c line-numbers" data-src="https://raw.githubusercontent.com/IgniparousTempest/arduino-christmas-lights/master/christmas_lights.ino"></pre>
 
 ## Math
 
@@ -47,7 +49,7 @@ The following shows the process of calculating the values for the resistors used
 	We want:<br>
 	\(I_{L}=40mA\), the current will be the same in all LEDs in series.<br>
 	<br>
-	
+
 	We Know:<br>
 	\(V_{in}=12V\)<br>
 	\(V_{CE}=0.2V\), transistor voltage drop when the transistor is saturated.<br>
@@ -56,7 +58,7 @@ The following shows the process of calculating the values for the resistors used
 	\(V_{pin 9}=5V\), Voltage from Arduino I/0 pin.<br>
 	\(V_{BE}=0.7V\), Voltage drop over PN junction of transistor.<br>
 	<br>
-	
+
 	To find \(R_{B}\):<br>
 	<div class="flex-container">
 		\(I_{B}=\frac{I_{C}}{10}\)\(=\frac{40mA}{10}=4mA\)
@@ -71,7 +73,7 @@ The following shows the process of calculating the values for the resistors used
 		\(n=\lfloor\frac{V_{in}-V_{CE}}{V_{L}}\rfloor\)\(=\lfloor\frac{12-0.2}{1.8}\rfloor=\lfloor6.\dot{5}\rfloor=6\)
 	</div>
 	<br>
-		
+
 	To find \(R_{C}\):<br>
 	<div class="flex-container">
 		\(R_{C}=\frac{V_{in}-V_{CE}-V_{L}\times n}{I_{R_{C}}}\)\(=\frac{12-0.2-1.8\times6}{40mA}=\frac{1}{0.04}\)\(=25\Omega\approx27\Omega\)

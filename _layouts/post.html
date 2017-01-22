@@ -3,9 +3,21 @@ layout: default
 ---
 
 <article class="post">
-	<h1>{{ page.title }}</h1>
 
-	{% if page.subtitle %}<p class="subtitle">{{ page.subtitle }}</p>{% endif %}
+	<div class="flex-container">
+	  <div style="margin-right:auto; margin-top: -30px; margin-bottom: -15px;">
+			<h1>{{ page.title }}</h1>
+			{% if page.subtitle %}<p class="subtitle">{{ page.subtitle }}</p>{% endif %}
+	  </div>
+		<ul class="share-buttons">
+		  <li><img alt="Sharing is caring" src="/images/social-share-share.png"></li>
+			<li><a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | prepend: site.url }}&t={{ page.title }}" title="Share on Facebook" target="_blank"><img alt="Share on Facebook" src="/images/social-share-facebook.png"></a></li>
+		  <li><a href="https://twitter.com/intent/tweet?source={{ page.url | prepend: site.url }}&text=:%20" target="_blank" title="Tweet"><img alt="Tweet" src="/images/social-share-twitter.png"></a></li>
+		  <li><a href="https://plus.google.com/share?url={{ page.url | prepend: site.url }}" target="_blank" title="Share on Google+"><img alt="Share on Google+" src="/images/social-share-google-plus.png"></a></li>
+		  <li><a href="http://www.reddit.com/submit?url={{ page.url | prepend: site.url }}&title={{ page.title }}" target="_blank" title="Submit to Reddit"><img alt="Submit to Reddit" src="/images/social-share-reddit.png"></a></li>
+			<li><a href="whatsapp://send?text={{ page.url | prepend: site.url }}" title="Share on Whatsapp"><img alt="Share on Whatsapp" src="/images/social-share-whatsapp.png"></a></li>
+		</ul>
+	</div>
 
 	<div class="entry">
 		{{ content }}

@@ -4,12 +4,6 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+I'm a happy-go-lucky vagabond, who has been thrust into the corporate world. I desperately try to pretend that I fit in, and I think I'm quite successful at it.
 
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
-
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
+This website is a collection of some random things I've done, that I thought someone might want to read about.

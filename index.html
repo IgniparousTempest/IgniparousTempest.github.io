@@ -6,7 +6,7 @@ layout: default
   {% for post in site.posts %}
     <article class="post" style="clear: both;">
     <div style="display: flex;">
-      <img style="float: left; margin-top: 30px; margin-right: 20px; width: 160px; height: 100%" src="{{ post.image }}"/>
+      <img style="float: left; margin-top: 30px; margin-right: 20px; width: 160px; height: 100%" src="{{ site.baseurl }}{{ post.image }}"/>
       <div>
         <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
 

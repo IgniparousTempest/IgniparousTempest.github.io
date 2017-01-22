@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Resistor Code Colour Chart
-image: https://igniparoustempest.github.io/images/svg/title_resistor.svg
+image: /images/title_resistor.svg
 categories:
 - electronics
 - arduino

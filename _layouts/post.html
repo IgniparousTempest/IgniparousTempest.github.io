@@ -10,7 +10,7 @@ layout: default
 			{% if page.subtitle %}<p class="subtitle">{{ page.subtitle }}</p>{% endif %}
 	  </div>
 		<ul class="share-buttons">
-		  <li><img alt="Sharing is caring" src="/images/social-share-share.png"></li>
+		  <li><img alt="Sharing is caring" src="{{ site.baseurl }}/images/social-share-share.png"></li>
 			<li><a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | prepend: site.url }}&t={{ page.title }}" title="Share on Facebook" target="_blank"><img alt="Share on Facebook" src="{{ site.baseurl }}/images/social-share-facebook.png"></a></li>
 		  <li><a href="https://twitter.com/intent/tweet?source={{ page.url | prepend: site.url }}&text=:%20" target="_blank" title="Tweet"><img alt="Tweet" src="{{ site.baseurl }}/images/social-share-twitter.png"></a></li>
 		  <li><a href="https://plus.google.com/share?url={{ page.url | prepend: site.url }}" target="_blank" title="Share on Google+"><img alt="Share on Google+" src="{{ site.baseurl }}/images/social-share-google-plus.png"></a></li>

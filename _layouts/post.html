@@ -32,16 +32,16 @@ layout: default
 			{% when '3' or '23' %}{{ day }}rd
 			{% else %}{{ day }}th
 		{% endcase %}
-		{{ page.date | date: " day of %B  in the year of Our Lord " }}
+		{{ page.date | date: " day of %B  in the year of our Lord " }}
 		{% assign year = page.date | date: "%Y"  %}
 		{% case year %}
-			{% when '2014' %}Two Thousand and Fourteen
-			{% when '2015' %}Two Thousand and Fifteen
-			{% when '2016' %}Two Thousand and Sixteen
-			{% when '2017' %}Two Thousand and Seventeen
-			{% when '2018' %}Two Thousand and Eighteen
-			{% when '2018' %}Two Thousand and Nineteen
-			{% when '2018' %}Two Thousand and Twenty
+			{% when '2014' %}two thousand and fourteen
+			{% when '2015' %}two thousand and fifteen
+			{% when '2016' %}two thousand and sixteen
+			{% when '2017' %}two thousand and seventeen
+			{% when '2018' %}two thousand and eighteen
+			{% when '2019' %}two thousand and nineteen
+			{% when '2020' %}two thousand and twenty
 			{% else %}Unknown ({{ year }})
 		{% endcase %}
 	</div>

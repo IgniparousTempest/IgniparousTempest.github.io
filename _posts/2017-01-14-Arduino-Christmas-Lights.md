@@ -43,7 +43,7 @@ Here is code use to control the lights, it is explained in the comments. Test
 
 The following shows the process of calculating the values for the resistors used in the low side switch.
 
-<img width="30%" style="display: block; margin-left: auto; margin-right: auto;"  title="NPN Low Side Switch Schematic" src="http://igniparoustempest.github.io/images/NPN_low_switch.svg"/>
+<img width="30%" style="display: block; margin-left: auto; margin-right: auto;"  title="NPN Low Side Switch Schematic" src="{{ site.baseurl }}/images/npn-low-switch.svg"/>
 
 <div style="line-height: 150%;">
 	We want:<br>

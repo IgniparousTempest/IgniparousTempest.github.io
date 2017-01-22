@@ -11,7 +11,7 @@ include:
 
 This is an adaption of a similar chart that I saw a while ago, I find it far quicker to use than a normal resistor colour table.
 
-<img width="80%" style="display: block; margin-left: auto; margin-right: auto;"  title="Colour Code Chart" src="https://igniparoustempest.github.io/images/Resistor%20Colour%20Chart.svg"/>
+<img width="80%" style="display: block; margin-left: auto; margin-right: auto;"  title="Colour Code Chart" src="{{ site.baseurl }}/images/resistor-colour-chart.svg"/>
 
 <style>
 a.button {
@@ -25,7 +25,7 @@ a.button {
 </style>
 
 <div style="text-align: center;">
-	<a href="https://igniparoustempest.github.io/images/Resistor%20Colour%20Chart.svg" class="button" download>Download SVG</a>
-	<a href="https://igniparoustempest.github.io/images/Resistor%20Colour%20Chart.png" class="button" download>Download PNG</a>
+	<a href="{{ site.baseurl }}/images/resistor-colour-chart.svg" class="button" download>Download SVG</a>
+	<a href="{{ site.baseurl }}/images/resistor-colour-chart.png" class="button" download>Download PNG</a>
 </div>
 <br>

@@ -1,7 +1,8 @@
 ---
 layout: post
-title: Resistor Code Colour Chart
+title: Resistor Colour Code Chart
 image: /images/title_resistor.svg
+og_image: /images/og_resistor-colour-chart.png
 categories:
 - electronics
 - arduino

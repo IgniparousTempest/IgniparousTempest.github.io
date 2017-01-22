@@ -3,6 +3,7 @@ layout: post
 title: Morse Code Christmas Lights Powered by an Arduino
 subtitle: Chrismas Lights for the Kidnapped Tree.
 image: /images/title_LED.svg
+og_image: /images/og_led.png
 categories:
 - electronics
 - arduino

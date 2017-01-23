@@ -9,7 +9,7 @@ permalink: /electronics/
 		{% if post.categories contains 'electronics' %}
 			<article class="post">
 
-				<h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+				<h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
 
 				<div class="entry">
 					{{ post.excerpt }}

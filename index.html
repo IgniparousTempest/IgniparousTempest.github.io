@@ -5,19 +5,6 @@ og_image: /images/og_site-logo.png
 
 <div class="posts" style="margin-top: -20px;">
   {% for post in site.posts %}
-    <article class="post" style="clear: both;">
-    <div style="display: flex;">
-      <img style="float: left; margin-top: 30px; margin-right: 20px; width: 160px; height: 100%" src="{{ site.baseurl }}{{ post.image }}"/>
-      <div>
-        <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
-
-        <div class="entry">
-          {{ post.excerpt }}
-        </div>
-
-        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-      </div>
-    </div>
-    </article>
+    {% include function-generate-post-preview.html post=post %}
   {% endfor %}
 </div>

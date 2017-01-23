@@ -20,3 +20,7 @@
     {% if page.title %}
     <meta property="og:image" content="{{ site.baseurl }}{{ page.og_image }}" />
     {% endif %}
+    
+    {% if page.url %}
+    <meta content="{{ site.url }}{{ page.url }}" property="og:url">
+    {% endif %}

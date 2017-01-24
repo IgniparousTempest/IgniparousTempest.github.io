@@ -1,6 +1,7 @@
 ---
-layout: page
+layout: category
 title: Personal
+subtitle: The following are entries I've written for myself. If reading other people's diaries sounds appealing, then feel free to read them!
 permalink: /personal/
 ---
 

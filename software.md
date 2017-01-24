@@ -1,6 +1,7 @@
 ---
-layout: page
+layout: category
 title: Software
+subtitle: Code and Algorithms
 permalink: /software/
 ---
 

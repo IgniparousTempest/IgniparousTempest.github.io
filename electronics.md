@@ -1,6 +1,7 @@
 ---
-layout: page
+layout: category
 title: Electronics
+subtitle: Arduino and PIC mainly
 permalink: /electronics/
 ---
 

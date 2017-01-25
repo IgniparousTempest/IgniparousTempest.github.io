@@ -20,3 +20,7 @@ A function generator is a piece of equipment that is capable of generating diffe
 ### Waveforms Produced
 
 <img width="100%" title="Bridge rectifier" src="{{ page.baseurl }}/images/waveforms.svg"/>
+
+### Ensure Accuracy
+
+The problem is that there is a single core, trying to operate buttons and other input, while trying to produce a time dependent output, will result in an incorrect wave. The solution is to use a [timer interrupt](http://playground.arduino.cc/Code/Timer1)

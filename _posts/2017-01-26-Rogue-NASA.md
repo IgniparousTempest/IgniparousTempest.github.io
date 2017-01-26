@@ -8,6 +8,8 @@ categories:
 - personal
 ---
 
+I feel quite strongly about science popularises who don't back up their claims with evidence, it undermines their very valid message.
+
 I came across a new phenomenon: dissident twitter accounts claiming to represent individuals that are linked to United States government entities.
 
 [@RogueNASA](https://twitter.com/RogueNASA) is quite cool, see below:

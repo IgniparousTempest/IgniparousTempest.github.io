@@ -1,0 +1,62 @@
+.super-container {
+  background: #2d2d2d;
+  overflow: auto;
+  /* Adds scrollbar */
+  font-size: 100%;
+}
+
+.container {
+  display: flex;
+  /* or inline-flex */
+  align-items: center;
+}
+
+.vertical-container {
+  align-items: center;
+}
+
+p {
+  color: #ffffff;
+  font-family: Sans-Serif;
+  margin: 1em;
+  min-width: 6em;
+}
+
+.item {
+  flex-grow: 1;
+}
+
+.square {
+  width: 0.4em;
+  height: 0.4em;
+  margin: 1px;
+  border: 1px solid rgba(0, 0, 0, .2);
+}
+
+.main {
+  background: #13b4ff;
+}
+
+.side {
+  background: #ffc000;
+}
+
+.salad {
+  background: #b4ff13;
+}
+
+.desert {
+  background: #ab3fdd;
+}
+
+.drink {
+  background: #ae163e;
+}
+
+.combo {
+  background: #915235;
+}
+
+.spacer {
+  border-color: rgba(0, 0, 0, 0);
+}

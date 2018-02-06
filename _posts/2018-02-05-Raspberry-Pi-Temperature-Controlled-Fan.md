@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Morse Code Christmas Lights Powered by an Arduino
-subtitle: Christmas Lights for the Kidnapped Tree.
+title: Raspberry Pi Temperature Controlled Fan
+subtitle: Icy Berry.
 image: /images/title_rpi_fan.jpg
 og_image: /images/og_rpi_fan.jpg
 categories:
@@ -19,19 +19,56 @@ So my Raspberry Pi has a fan that runs constantly and it annoys me, time to fix 
 
 ## Circuit
 
-The ciruit uses a transistor as a switch, this is an NPN. The transistor allows the fan to draw a high current from the 5V pin, and lets us control it from another pin.
+The circuit uses an NPN transistor as a switch. The transistor allows the fan to draw a high current from the 5V pin, and lets us control it from another pin.
 
 <img width="80%" style="display: block; margin-left: auto; margin-right: auto;"  title="Circuit Schematic" src="https://rawgithub.com/IgniparousTempest/rpi-fan-controller/master/.images/diagram.png"/>
 
-I built a circuit board to fit on the pi:
+I also built a circuit board to fit on the pi:
 
-<img width="40%" style="display: block; margin-left: auto; margin-right: auto;"  title="Circuit" src="/images/rpifan_circuit.jpg"/>
-<img width="40%" style="display: block; margin-left: auto; margin-right: auto;"  title="Circuit" src="/images/rpifan_installed.jpg"/>
+<img width="40%" style="float: left; margin-left: 5%; margin-right: 5%;"  title="PCB" src="/images/rpifan_circuit.jpg"/>
+<img width="40%" style="float: right; margin-top: 4%;  margin-bottom: 4%; margin-left: 5%; margin-right: 5%;"  title="PCB installed" src="/images/rpifan_installed.jpg"/>
+
+Once you have built this circuit, we need to install the software.
+
+## Software
+
+Open a terminal and run the following commands:
+
+    git clone https://github.com/IgniparousTempest/rpi-fan-controller
+    cd rpi-fan-controller
+    chmod u+x ./install.sh
+    ./install.sh
+    cd ..
+    rm -rf rpi-fan-controller
+    
+This will install the rpifan tool and remove the installation files.
+
+The tool will now run with the default settings, which means it will check the temperature every 10 minutes and turn on the fan if the CPU is hotter than 40 °C.
+
+The tool will be run periodically but you can run it at anytime by typing `rpifan` into the console.
 
 ## Configuring
+
+### Temperature Threshold and Trigger Pin
 
 We can optionally configure the temperature threshold and the trigger pin of the rpifan program, to do that run this:
 
     sudo nano /ur/share/rpifan/config.cfg
     
+You should see the following lines:
+
+    gpio_pin = 1
+    temperature_threshold = 40.0
+    
+The GPIO pin is the GEN pin number, so GEN1 would be GPIO 18.
+
 The temperature is in degrees Celsius, so adjust accordingly if [you live in a country that has a tendency to lose French scientists to pirates](https://www.npr.org/sections/thetwo-way/2017/12/28/574044232/how-pirates-of-the-caribbean-hijacked-americas-metric-system).
+
+### Frequency
+
+We can also change the frequency of which the tool is run by typing `crontab -e` into the terminal. You should see the following lines:
+
+    # RPI Fan controller
+    */10 * * * * /usr/bin/rpifan
+    
+The `*/10` signifies the tool will be run every 10 minutes, this could be changed to `*/5` for example to run it every 5 minutes.

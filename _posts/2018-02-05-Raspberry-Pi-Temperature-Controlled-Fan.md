@@ -34,12 +34,14 @@ Once you have built this circuit, we need to install the software.
 
 Open a terminal and run the following commands:
 
-    git clone https://github.com/IgniparousTempest/rpi-fan-controller
-    cd rpi-fan-controller
-    chmod u+x ./install.sh
-    ./install.sh
-    cd ..
-    rm -rf rpi-fan-controller
+{% highlight bash %}
+git clone https://github.com/IgniparousTempest/rpi-fan-controller
+cd rpi-fan-controller
+chmod u+x ./install.sh
+./install.sh
+cd ..
+rm -rf rpi-fan-controller
+{% endhighlight %}
     
 This will install the rpifan tool and remove the installation files.
 
@@ -53,12 +55,16 @@ The tool will be run periodically but you can run it at anytime by typing `rpifa
 
 We can optionally configure the temperature threshold and the trigger pin of the rpifan program, to do that run this:
 
-    sudo nano /ur/share/rpifan/config.cfg
+{% highlight bash %}
+sudo nano /ur/share/rpifan/config.cfg
+{% endhighlight %}
     
 You should see the following lines:
 
-    gpio_pin = 1
-    temperature_threshold = 40.0
+{% highlight bash %}
+gpio_pin = 1
+temperature_threshold = 40.0
+{% endhighlight %}
     
 The GPIO pin is the GEN pin number, so GEN1 would be GPIO 18.
 
@@ -68,7 +74,9 @@ The temperature is in degrees Celsius, so adjust accordingly if [you live in a c
 
 We can also change the frequency of which the tool is run by typing `crontab -e` into the terminal. You should see the following lines:
 
-    # RPI Fan controller
-    */10 * * * * /usr/bin/rpifan
+{% highlight bash %}
+# RPI Fan controller
+*/10 * * * * /usr/bin/rpifan
+{% endhighlight %}
     
 The `*/10` signifies the tool will be run every 10 minutes, this could be changed to `*/5` for example to run it every 5 minutes.

@@ -21,12 +21,11 @@ So my Raspberry Pi has a fan that runs constantly and it annoys me, time to fix 
 
 The circuit uses an NPN transistor as a switch. The transistor allows the fan to draw a high current from the 5V pin, and lets us control it from another pin.
 
-![Circuit Schematic](https://rawgithub.com/IgniparousTempest/rpi-fan-controller/master/.images/diagram.png){: .center-image width="80%" }
+![Circuit Schematic](https://rawgithub.com/IgniparousTempest/rpi-fan-controller/master/.images/diagram.png "Circuit Schematic"){: .center-image width="80%" }
 
 I also built a circuit board to fit on the pi:
 
-<img width="40%" style="float: left; margin-left: 5%; margin-right: 5%;"  title="PCB" src="/images/rpifan_circuit.jpg"/>
-<img width="40%" style="float: right; margin-top: 4%;  margin-bottom: 4%; margin-left: 5%; margin-right: 5%;"  title="PCB installed" src="/images/rpifan_installed.jpg"/>
+![PCB](/images/rpifan_circuit.jpg "PCB") ![PCB installed](/images/rpifan_installed.jpg "PCB installed-2")
 
 Once you have built this circuit, we need to install the software.
 

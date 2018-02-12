@@ -1,82 +1,100 @@
 ---
 layout: post
-title: Raspberry Pi Temperature Controlled Fan
-subtitle: Icy Berry.
-image: /images/title_rpi_fan.jpg
-og_image: /images/og_rpi_fan.jpg
+title: Raspberry Pi Mini Marquee
+subtitle: A marquee for ants.
+image: /images/title_rpi_mini_marquee.jpg
+og_image: /images/og_rpi_mini_marquee.jpg
 categories:
 - electronics
 - raspberrypi
 ---
 
-So my Raspberry Pi has a fan that runs constantly and it annoys me, time to fix that. I am going to show you how to make a fan that only turns on when the raspberry pi is on and the CPU is above a certain temperature threshold. We'll be using [rpi-fan-controller](https://github.com/IgniparousTempest/rpi-fan-controller) for this task.
+My Raspberry Pi is feeling too standard, so a really cool mod that could be done for under $5 is adding a mini marquee. The marquee can be configured to display what game you are running or what system you are playing on. We'll be using [rpi-mini-marquee](https://github.com/IgniparousTempest/rpi-mini-marquee) for this task.
+
+{% youtube oHg5SJYRHA0 %}
 
 ## Bill of Materials
 
-1x Raspberry Pi ([Available at Sparkfun](https://www.sparkfun.com/products/13825 "Or from somewhere else"))<br>
-1x 1kΩ resistor ([Available at Sparkfun](https://www.sparkfun.com/products/13760 "Or from somewhere else"))<br>
-1x NPN transistor ([Available at Sparkfun](https://www.sparkfun.com/products/521 "Or from somewhere else"))
+1x 128x32 OLED Screen ([Available at Banggood](https://www.banggood.com/0_91-Inch-128x32-IIC-I2C-Blue-OLED-LCD-Display-DIY-Oled-Module-SSD1306-Driver-IC-DC-3_3V-5V-p-1140506.html?rmmds=myorder "Or from somewhere else"))
 
 ## Circuit
 
-The circuit uses an NPN transistor as a switch. The transistor allows the fan to draw a high current from the 5V pin, and lets us control it from another pin.
+The circuit is super simple, connect the four pins of the screen to the Pi as follows:
 
-<img width="80%" style="display: block; margin-left: auto; margin-right: auto;"  title="Circuit Schematic" src="https://rawgithub.com/IgniparousTempest/rpi-fan-controller/master/.images/diagram.png"/>
-
-I also built a circuit board to fit on the pi:
-
-<img width="40%" style="float: left; margin-left: 5%; margin-right: 5%;"  title="PCB" src="/images/rpifan_circuit.jpg"/>
-<img width="40%" style="float: right; margin-top: 4%;  margin-bottom: 4%; margin-left: 5%; margin-right: 5%;"  title="PCB installed" src="/images/rpifan_installed.jpg"/>
-
-Once you have built this circuit, we need to install the software.
+![Circuit Schematic](/images/rpi-mini-marquee-circuit.png "Circuit Schematic"){: .center-image width="80%" }
 
 ## Software
 
 Open a terminal and run the following commands:
 
 {% highlight bash %}
-git clone https://github.com/IgniparousTempest/rpi-fan-controller
-cd rpi-fan-controller
-chmod u+x ./install.sh
+git clone https://github.com/IgniparousTempest/rpi-mini-marquee
+cd rpi-mini-marquee
+chmod +x install.sh
 ./install.sh
-cd ..
-rm -rf rpi-fan-controller
 {% endhighlight %}
     
-This will install the rpifan tool and remove the installation files.
+This will install the `rpi-mini-marquee` tool and the necessary scripts to change the marquee when a game starts, a game ends, the system starts up, and the shuts down.
 
-The tool will now run with the default settings, which means it will check the temperature every 10 minutes and turn on the fan if the CPU is hotter than 40 °C.
+The installation files can now be removed by running these commands in the same window:
 
-The tool will be run periodically but you can run it at anytime by typing `rpifan` into the console.
+{% highlight bash %}
+cd ..
+rm -rf rpi-mini-marquee
+{% endhighlight %}
+
+The tool will be run automatically, but you can also access it by typing `rpi-mini-marquee` of the command line.
+
+You are now done.
 
 ## Configuring
 
-### Temperature Threshold and Trigger Pin
+By default the screen will display the system when the game stars, and switch off when the Pi goes off. These can be altered. 
 
-We can optionally configure the temperature threshold and the trigger pin of the rpifan program, to do that run this:
+### Keep screen on when Pi is off
+
+We can make the screen display something, e.g. retopie logo, when the Pi is off:
 
 {% highlight bash %}
-sudo nano /ur/share/rpifan/config.cfg
+sudo nano /etc/init.d/rpimm.sh
 {% endhighlight %}
     
 You should see the following lines:
 
 {% highlight bash %}
-gpio_pin = 1
-temperature_threshold = 40.0
+stop () {
+    /usr/bin/rpi-mini-marquee clear
+    return
+}
 {% endhighlight %}
-    
-The GPIO pin is the GEN pin number, so GEN1 would be GPIO 18.
 
-The temperature is in degrees Celsius, so adjust accordingly if [you live in a country that has a tendency to lose French scientists to pirates](https://www.npr.org/sections/thetwo-way/2017/12/28/574044232/how-pirates-of-the-caribbean-hijacked-americas-metric-system).
-
-### Frequency
-
-We can also change the frequency of which the tool is run by typing `crontab -e` into the terminal. You should see the following lines:
+To make it display the retropie logo when we switch off the pi, change it to:
 
 {% highlight bash %}
-# RPI Fan controller
-*/10 * * * * /usr/bin/rpifan
+stop () {
+    /usr/bin/rpi-mini-marquee retropie
+    return
+}
 {% endhighlight %}
-    
-The `*/10` signifies the tool will be run every 10 minutes, this could be changed to `*/5` for example to run it every 5 minutes.
+
+Once you are done editing, run the following to reload the service:
+
+{% highlight bash %}
+restart service
+{% endhighlight %}
+
+### Display game logo instead of system
+
+We can make the screen display the game logo, instead of the system logo, when a game is launched. This would require you to create your own game marquees and put them in `\usr\share\rpi-mini-marquee\marquees\black_white`.
+
+{% highlight bash %}
+sudo nano /opt/retropie/configs/all/runcommand-onstart.sh
+{% endhighlight %}
+
+Change the line `/usr/bin/rpi-mini-marquee -f $1` to:
+
+{% highlight bash %}
+/usr/bin/rpi-mini-marquee -f $(basename $3)
+{% endhighlight %}
+
+Name your game marquees accordingly.

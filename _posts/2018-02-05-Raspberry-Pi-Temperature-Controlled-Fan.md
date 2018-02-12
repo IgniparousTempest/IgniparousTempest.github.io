@@ -25,7 +25,7 @@ The circuit uses an NPN transistor as a switch. The transistor allows the fan to
 
 I also built a circuit board to fit on the pi:
 
-![PCB](/images/rpifan_circuit.jpg "PCB") ![PCB installed](/images/rpifan_installed.jpg "PCB installed-2")
+![PCB](/images/rpifan_circuit.jpg "PCB"){: width="40%" } ![PCB installed](/images/rpifan_installed.jpg "PCB installed-2"){: width="40%" }
 
 Once you have built this circuit, we need to install the software.
 

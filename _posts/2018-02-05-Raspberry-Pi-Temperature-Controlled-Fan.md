@@ -55,7 +55,7 @@ The tool will be run periodically but you can run it at anytime by typing `rpifa
 We can optionally configure the temperature threshold and the trigger pin of the rpifan program, to do that run this:
 
 {% highlight bash %}
-sudo nano /ur/share/rpifan/config.cfg
+sudo nano /usr/share/rpifan/config.cfg
 {% endhighlight %}
     
 You should see the following lines:

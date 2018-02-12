@@ -11,7 +11,7 @@ categories:
 
 My Raspberry Pi is feeling too standard, so a really cool mod that could be done for under $5 is adding a mini marquee. The marquee can be configured to display what game you are running or what system you are playing on. We'll be using [rpi-mini-marquee](https://github.com/IgniparousTempest/rpi-mini-marquee) for this task.
 
-{% youtube oHg5SJYRHA0 %}
+<iframe width="560" height="420" src=\"http://www.youtube.com/embed/#oHg5SJYRHA0?color=white&theme=light\"></iframe>
 
 ## Bill of Materials
 

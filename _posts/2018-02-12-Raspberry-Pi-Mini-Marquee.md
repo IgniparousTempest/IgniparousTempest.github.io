@@ -88,7 +88,7 @@ restart service
 
 ### Display game logo instead of system
 
-We can make the screen display the game logo, instead of the system logo, when a game is launched. This would require you to create your own game marquees and put them in `\usr\share\rpi-mini-marquee\marquees\black_white`.
+We can make the screen display the game logo, instead of the system logo, when a game is launched.
 
 {% highlight bash %}
 sudo nano /opt/retropie/configs/all/runcommand-onstart.sh
@@ -98,6 +98,12 @@ Change the line `/usr/bin/rpi-mini-marquee -f $1` to:
 
 {% highlight bash %}
 /usr/bin/rpi-mini-marquee -f $(basename $3)
+{% endhighlight %}
+
+You should create your own game marquees and put them in:
+
+{% highlight bash %}
+/usr/share/rpi-mini-marquee/marquees/black_white
 {% endhighlight %}
 
 Name your game marquees accordingly.

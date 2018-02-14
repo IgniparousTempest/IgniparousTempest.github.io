@@ -6,6 +6,7 @@ og_image: /images/og_lego.png
 categories:
 - electronics
 - arduino
+- hidden
 ---
 
 Article is still being written.

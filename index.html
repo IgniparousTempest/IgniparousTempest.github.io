@@ -6,7 +6,9 @@ og_image: /images/og_site-logo.png
 <div class="posts" style="margin-top: -20px;">
   {% for post in site.posts %}
     {% unless post.categories contains 'personal' %} {% comment %} don't put my personal stuff on the home page {% endcomment %}
-      {% include function-generate-post-preview.html post=post %}
+      {% unless post.categories contains 'hidden' %} {% comment %} hide posts {% endcomment %}
+        {% include function-generate-post-preview.html post=post %}
+      {% endunless %}
     {% endunless %}
   {% endfor %}
 </div>

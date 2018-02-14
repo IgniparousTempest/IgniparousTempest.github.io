@@ -8,7 +8,9 @@ permalink: /software/
 <div class="posts">
 	{% for post in site.posts %}
 		{% if post.categories contains 'software' %}
-			{% include function-generate-post-preview.html post=post %}
+		    {% unless post.categories contains 'hidden' %}
+			    {% include function-generate-post-preview.html post=post %}
+			{% endunless %}
 		{% endif %}
 	{% endfor %}
 </div>

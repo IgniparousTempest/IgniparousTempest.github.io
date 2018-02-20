@@ -37,7 +37,7 @@ chmod +x install.sh
 ./install.sh
 {% endhighlight %}
     
-This will install the {% highlight bash %}rpi-mini-marquee{% endhighlight %} tool and the necessary scripts to change the marquee when a game starts, a game ends, the system starts up, and the shuts down.
+This will install the `rpi-mini-marquee` tool and the necessary scripts to change the marquee when a game starts, a game ends, the system starts up, and the shuts down.
 
 The installation files can now be removed by running these commands in the same window:
 
@@ -46,7 +46,7 @@ cd ..
 rm -rf rpi-mini-marquee
 {% endhighlight %}
 
-The tool will be run automatically, but you can also access it by typing {% highlight bash %}rpi-mini-marquee{% endhighlight %} on the command line.
+The tool will be run automatically, but you can also access it by typing `rpi-mini-marquee` on the command line.
 
 You are now done.
 

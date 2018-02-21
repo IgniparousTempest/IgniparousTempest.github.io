@@ -30,13 +30,13 @@ The ciruit uses a NPN transistor as a low side switch. The transistor allows the
 
 <img width="80%" style="display: block; margin-left: auto; margin-right: auto;"  title="Breadboard" src="https://rawgithub.com/IgniparousTempest/arduino-christmas-lights/master/christmas_lights_breadboard.svg"/>
 
-The led chain is made up of a single LED colour, otherwise only the colour with the lowest voltage drop will be lit brightly. More chains can be added with a different colour each, but the resistor values will need to be recalculated very carefully, to avoid diode current hogging.
+The led chain is made up of a single LED colour, otherwise only the colour with the lowest voltage drop will be lit brightly. More chains can be added with a different colour each and the resistor values will need to be calculated accordingly. Many beginner tutorials suggest arranging LEDs in parallel to overcome the voltage drop in series, but this can cause [diode current hogging](https://electronics.stackexchange.com/q/22291/134776). 
 
 <img width="80%" style="display: block; margin-left: auto; margin-right: auto;"  title="Circuit Schematic" src="https://rawgithub.com/IgniparousTempest/arduino-christmas-lights/master/christmas_lights_schematic.svg"/>
 
 ## Code
 
-Here is code use to control the lights, it is explained in the comments. Test
+Here is code use to control the lights, it is explained in the comments.
 
 <pre  class="language-c line-numbers" data-src="https://raw.githubusercontent.com/IgniparousTempest/arduino-christmas-lights/master/christmas_lights.ino"></pre>
 

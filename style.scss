@@ -380,7 +380,7 @@ footer {
 .post-text {
   flex: 1;
 }
-@media screen and (max-width:990px) {
+@media screen and (max-width:320px) {
   .post-container { flex-wrap: wrap;  }
   .post-image { flex-basis: 100%; float: none; margin: auto; }
 }

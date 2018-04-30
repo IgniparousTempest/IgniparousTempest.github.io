@@ -2,10 +2,14 @@
 	{% for include_script in page.include %}
 	  {% assign include_params = include_script | split:" " %}
 		{% case include_params[0] %}
-			{% when 'mathjax' %}
-				<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+			{% when 'canvasjs' %}
+				<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 			{% when 'jquery' %}
 				<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+			{% when 'mathjax' %}
+				<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+			{% when 'moment-js' %}
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
 			{% when 'prism' %}
 				<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism-okaidia.min.css">

@@ -13,7 +13,7 @@ include:
 - moment-js
 ---
 
-This tool processes your conversation log in WhatsApp to give you some interesting insights, see the bottom of the page for help. It is all preocessed locally in JavaScript, so your messages are perfectly safe :) That said, JavaScript is a bit slow, so it may take a while. You may examine the source code [here]({{ site.baseurl }}/assets/js/whatsapp-processor.js), be kind it is poorly optimised.
+This tool processes your conversation log from WhatsApp to give you some interesting insights, see the [bottom](#how-to-use-this-tool) of the page for help. It is all preocessed locally in JavaScript, so your messages are perfectly safe :) That said, JavaScript is a bit slow, so it may take a while. You may examine the source code [here]({{ site.baseurl }}/assets/js/whatsapp-processor.js), be kind it is poorly optimised.
 
 <script type="text/javascript" src="{{ site.baseurl }}/assets/js/whatsapp-processor.js"></script>
 

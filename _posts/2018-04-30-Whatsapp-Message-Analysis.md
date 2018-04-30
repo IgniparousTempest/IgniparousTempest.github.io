@@ -13,7 +13,7 @@ include:
 - moment-js
 ---
 
-This is all preocessed locally in JavaScript, so your messages are perfectly safe :) It is all written in javascript, so it may take a while. You may examine the source code [here]({{ site.baseurl }}/assets/js/whatsapp-processor.js).
+This tool processes your conversation log in WhatsApp to give you some interesting insights, see the bottom of the page for help. It is all preocessed locally in JavaScript, so your messages are perfectly safe :) That said, JavaScript is a bit slow, so it may take a while. You may examine the source code [here]({{ site.baseurl }}/assets/js/whatsapp-processor.js), be kind it is poorly optimised.
 
 <script type="text/javascript" src="{{ site.baseurl }}/assets/js/whatsapp-processor.js"></script>
 
@@ -70,6 +70,10 @@ This is all preocessed locally in JavaScript, so your messages are perfectly saf
 <div id="weekVis" style="width: 100%; height: 300px;"></div>
 
 <div id="hourVis" style="width: 100%; height: 300px;"></div>
+
+## How to Use This Tool
+
+Open up WhatsApp, press the breadcrumbs button in the action bar, select more, then email conversation. Email the chat log to yourself, then download the *.txt file and open it with this tool.
 
 <script type="text/javascript">
 var weekChart = new CanvasJS.Chart("weekVis", {

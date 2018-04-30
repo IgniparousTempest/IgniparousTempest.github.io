@@ -245,7 +245,6 @@ function processMessagesFile(text) {
 	$('#emoji_2').html(numEmoji[names[1]]);
 	
 	weekChartUpdate(names, weekMessages);
-	console.log(timeMessages);
 	hourChartUpdate(names, timeMessages);
 }
 

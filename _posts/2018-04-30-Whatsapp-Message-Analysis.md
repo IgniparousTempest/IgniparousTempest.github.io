@@ -32,7 +32,7 @@ This tool processes your conversation log from WhatsApp to give you some interes
   <div id="tabs-1">
     <p>Uses this for insights into a conversation with an indicidual.</p>
 
-	<input type="file" id="file-input" />
+	<input type="file" id="individual-file-input" />
 
 	<table>
 	  <tr>
@@ -88,6 +88,8 @@ This tool processes your conversation log from WhatsApp to give you some interes
   </div>
   <div id="tabs-2">
     <p>Uses this for insights into a conversation with a group.</p>
+    
+    <div id="groupMessagesVis" style="width: 100%; height: 300px;"></div>
   </div>
 </div>
 
@@ -216,8 +218,38 @@ var hourChart = new CanvasJS.Chart("hourVis", {
 	}]
 });
 hourChart.render();
+var groupMessagesChart = new CanvasJS.Chart("groupMessagesVis", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "Messages Sent by Each Member"
+	},
+	axisY: {
+		title: "Messages"
+	},
+	data: [{        
+		type: "column", 
+		dataPoints: []
+	}]
+});
+groupMessagesChart.render();
 
+// Opens the individual chat log
 function readSingleFile(e) {
+  var file = e.target.files[0];
+  if (!file) {
+    return;
+  }
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var contents = e.target.result;
+    processMessagesFile(contents);
+  };
+  reader.readAsText(file);
+}
+
+// Opens the group chat log
+function readGroupFile(e) {
   var file = e.target.files[0];
   if (!file) {
     return;
@@ -292,5 +324,17 @@ function hourChartUpdate(names, data) {
 	hourChart.render();
 }
 
-document.getElementById('file-input').addEventListener('change', readSingleFile, false);
+function processGroupMessagesFile(text) {
+	let messages = processMessages(text);
+	let frequency = messageFrequency(messages, true);
+	
+	let keys = Object.keys(frequency);
+	groupMessagesChart.options.data[i].dataPoints = [];
+	for (let i=0; i<keys.length; i++)
+		groupMessagesChart.options.data[0].dataPoints.push({ label: keys[i], y: frequency[keys[i]] });
+	groupMessagesChart.render();
+}
+
+document.getElementById('individual-file-input').addEventListener('change', readSingleFile, false);
+document.getElementById('group-file-input').addEventListener('change', readGroupFile, false);
 </script>

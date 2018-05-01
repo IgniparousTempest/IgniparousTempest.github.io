@@ -27,7 +27,7 @@ function messageFrequency(messages) {
 }
 
 // Gets the names of the two participants in the conversation.
-function getCorrespondentsNames(frequency) {
+function getCorrespondentsNames(frequency, getAll = false) {
     let names = Object.keys(frequency).map(function(key) {return key;});
     if (names.length === 2)
         return names;

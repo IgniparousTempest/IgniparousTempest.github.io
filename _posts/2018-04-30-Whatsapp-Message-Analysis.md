@@ -10,66 +10,86 @@ categories:
 include:
 - canvasjs
 - jquery
+- jquery-ui
 - moment-js
 ---
+
+<script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+</script>
 
 This tool processes your conversation log from WhatsApp to give you some interesting insights, see the [bottom](#how-to-use-this-tool) of the page for help. It is all preocessed locally in JavaScript, so your messages are perfectly safe :) That said, JavaScript is a bit slow, so it may take a while. You may examine the source code [here]({{ site.baseurl }}/assets/js/whatsapp-processor.js), be kind it is poorly optimised.
 
 <script type="text/javascript" src="{{ site.baseurl }}/assets/js/whatsapp-processor.js"></script>
 
-<input type="file" id="file-input" />
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">Individual</a></li>
+    <li><a href="#tabs-2">Group</a></li>
+  </ul>
+  <div id="tabs-1">
+    <p>Uses this for insights into a conversation with an indicidual.</p>
 
-<table>
-  <tr>
-    <th></th>
-    <th id="name1" style="padding-right: 10px; padding-left:  10px;"></th>
-    <th id="name2"></th>
-  </tr>
-  <tr>
-    <td><b>Messages Sent:</b></td>
-    <td id="messages_1" align="center"></td>
-    <td id="messages_2" align="center"></td>
-  </tr>
-  <tr>
-    <td><b>Total Words:</b></td>
-    <td id="words_1" align="center"></td>
-    <td id="words_2" align="center"></td>
-  </tr>
-  <tr>
-    <td><b>Longest Message:</b></td>
-    <td id="longest_1" align="center"></td>
-    <td id="longest_2" align="center"></td>
-  </tr>
-  <tr>
-    <td><b>Average Message Length:</b></td>
-    <td id="average_1" align="center"></td>
-    <td id="average_2" align="center"></td>
-  </tr>
-  <tr>
-    <td><b>Longest Message Streak:</b></td>
-    <td id="streak_1" align="center"></td>
-    <td id="streak_2" align="center"></td>
-  </tr>
-  <tr>
-    <td><b>Media Messages Sent:</b></td>
-    <td id="media_1" align="center"></td>
-    <td id="media_2" align="center"></td>
-  </tr>
-  <tr>
-    <td><b>Location Messages Sent:</b></td>
-    <td id="location_1" align="center"></td>
-    <td id="location_2" align="center"></td>
-  </tr>
-  <tr>
-    <td><b>Emoji Sent:</b></td>
-    <td id="emoji_1" align="center"></td>
-    <td id="emoji_2" align="center"></td>
-  </tr>
-</table>
+	<input type="file" id="file-input" />
 
-<div id="weekVis" style="width: 100%; height: 300px;"></div>
+	<table>
+	  <tr>
+	    <th></th>
+	    <th id="name1" style="padding-right: 10px; padding-left:  10px;"></th>
+	    <th id="name2"></th>
+	  </tr>
+	  <tr>
+	    <td><b>Messages Sent:</b></td>
+	    <td id="messages_1" align="center"></td>
+	    <td id="messages_2" align="center"></td>
+	  </tr>
+	  <tr>
+	    <td><b>Total Words:</b></td>
+	    <td id="words_1" align="center"></td>
+	    <td id="words_2" align="center"></td>
+	  </tr>
+	  <tr>
+	    <td><b>Longest Message:</b></td>
+	    <td id="longest_1" align="center"></td>
+	    <td id="longest_2" align="center"></td>
+	  </tr>
+	  <tr>
+	    <td><b>Average Message Length:</b></td>
+	    <td id="average_1" align="center"></td>
+	    <td id="average_2" align="center"></td>
+	  </tr>
+	  <tr>
+	    <td><b>Longest Message Streak:</b></td>
+	    <td id="streak_1" align="center"></td>
+	    <td id="streak_2" align="center"></td>
+	  </tr>
+	  <tr>
+	    <td><b>Media Messages Sent:</b></td>
+	    <td id="media_1" align="center"></td>
+	    <td id="media_2" align="center"></td>
+	  </tr>
+	  <tr>
+	    <td><b>Location Messages Sent:</b></td>
+	    <td id="location_1" align="center"></td>
+	    <td id="location_2" align="center"></td>
+	  </tr>
+	  <tr>
+	    <td><b>Emoji Sent:</b></td>
+	    <td id="emoji_1" align="center"></td>
+	    <td id="emoji_2" align="center"></td>
+	  </tr>
+	</table>
 
-<div id="hourVis" style="width: 100%; height: 300px;"></div>
+	<div id="weekVis" style="width: 100%; height: 300px;"></div>
+
+	<div id="hourVis" style="width: 100%; height: 300px;"></div>
+  </div>
+  <div id="tabs-2">
+    <p>Uses this for insights into a conversation with a group.</p>
+  </div>
+</div>
 
 ## How to Use This Tool
 
@@ -88,7 +108,7 @@ var weekChart = new CanvasJS.Chart("weekVis", {
 	data: [{        
 		type: "column", 
 		showInLegend: true,
-		name: "person1",
+		name: "Person1",
 		dataPoints: [
 			{ y: 0, label: "Monday" },
 			{ y: 0,  label: "Tuesday" },
@@ -102,7 +122,7 @@ var weekChart = new CanvasJS.Chart("weekVis", {
 	{        
 		type: "column", 
 		showInLegend: true,
-		name: "person2",
+		name: "Person2",
 		dataPoints: [
 			{ y: 0, label: "Monday" },
 			{ y: 0,  label: "Tuesday" },

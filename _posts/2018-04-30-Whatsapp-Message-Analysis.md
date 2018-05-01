@@ -89,6 +89,8 @@ This tool processes your conversation log from WhatsApp to give you some interes
   <div id="tabs-2">
     <p>Uses this for insights into a conversation with a group.</p>
     
+    <input type="file" id="group-file-input" />
+    
     <div id="groupMessagesVis" style="width: 100%; height: 300px;"></div>
   </div>
 </div>

@@ -22,46 +22,46 @@ This tool processes your conversation log from WhatsApp to give you some interes
 <table>
   <tr>
     <th></th>
-    <th id="name1"></th>
+    <th id="name1" style="padding-right: 10px; padding-left:  10px;"></th>
     <th id="name2"></th>
   </tr>
   <tr>
-    <td><b>Messages Sent</b></td>
+    <td><b>Messages Sent:</b></td>
     <td id="messages_1" align="center"></td>
     <td id="messages_2" align="center"></td>
   </tr>
   <tr>
-    <td><b>Total Words</b></td>
+    <td><b>Total Words:</b></td>
     <td id="words_1" align="center"></td>
     <td id="words_2" align="center"></td>
   </tr>
   <tr>
-    <td><b>Longest Message</b></td>
+    <td><b>Longest Message:</b></td>
     <td id="longest_1" align="center"></td>
     <td id="longest_2" align="center"></td>
   </tr>
   <tr>
-    <td><b>Average Message Length</b></td>
+    <td><b>Average Message Length:</b></td>
     <td id="average_1" align="center"></td>
     <td id="average_2" align="center"></td>
   </tr>
   <tr>
-    <td><b>Longest Message Streak</b></td>
+    <td><b>Longest Message Streak:</b></td>
     <td id="streak_1" align="center"></td>
     <td id="streak_2" align="center"></td>
   </tr>
   <tr>
-    <td><b>Media Messages Sent</b></td>
+    <td><b>Media Messages Sent:</b></td>
     <td id="media_1" align="center"></td>
     <td id="media_2" align="center"></td>
   </tr>
   <tr>
-    <td><b>Location Messages Sent</b></td>
+    <td><b>Location Messages Sent:</b></td>
     <td id="location_1" align="center"></td>
     <td id="location_2" align="center"></td>
   </tr>
   <tr>
-    <td><b>Emoji Sent</b></td>
+    <td><b>Emoji Sent:</b></td>
     <td id="emoji_1" align="center"></td>
     <td id="emoji_2" align="center"></td>
   </tr>
@@ -214,16 +214,16 @@ function processMessagesFile(text) {
 	let messages = processMessages(text);
 	let frequency = messageFrequency(messages);
 	let names = getCorrespondentsNames(frequency);
-	let numMessages = messageCount(messages, names[0], names[1]);
-	let numWords = wordCount(messages, names[0], names[1]);
-	let longestMsg = longestMessage(messages, names[0], names[1]);
-	let wpm = wordsPerMessage(numMessages, numWords, names[0], names[1]);
-	let longestStreak = messageStreak(messages, names[0], names[1]);
-	let numMedia = mediaMessageCount(messages, names[0], names[1]);
-	let numLocations = locationMessageCount(messages, names[0], names[1]);
-	let numEmoji = emojiCount(messages, names[0], names[1]);
-	let weekMessages = messageDayOfWeek(messages, names[0], names[1]);
-	let timeMessages = messageTime(messages, names[0], names[1]);
+	let numMessages = messageCount(messages, names);
+	let numWords = wordCount(messages, names);
+	let longestMsg = longestMessage(messages, names);
+	let wpm = wordsPerMessage(numMessages, numWords, names);
+	let longestStreak = messageStreak(messages, names);
+	let numMedia = mediaMessageCount(messages, names);
+	let numLocations = locationMessageCount(messages, names);
+	let numEmoji = emojiCount(messages, names);
+	let weekMessages = messageDayOfWeek(messages, names);
+	let timeMessages = messageTime(messages, names);
 
 	$('#name1').html(names[0]);
 	$('#name2').html(names[1]);

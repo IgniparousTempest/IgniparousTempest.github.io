@@ -76,7 +76,7 @@ This supports a conversation log with an individual or a group.
 
 ## How to Use This Tool
 
-Open up WhatsApp, press the breadcrumbs button in the action bar, select more, then email conversation. Email the chat log to yourself, then download the *.txt file and open it with this tool.
+Open up WhatsApp, press the breadcrumbs button in the action bar, select "More", "Email chat", and then "Without Media". Email the chat log to yourself, then download the *.txt file and open it with this tool.
 
 <script type="text/javascript" src="{{ site.baseurl }}/assets/js/whatsapp-processor.js"></script>
 

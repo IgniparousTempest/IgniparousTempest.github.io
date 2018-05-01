@@ -7,6 +7,9 @@ let weekChart = new CanvasJS.Chart("weekVis", {
     axisY: {
         title: "Messages"
     },
+    toolTip: {
+        shared: true
+    },
     data: []
 });
 weekChart.render();

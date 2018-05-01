@@ -13,7 +13,7 @@ include:
 - jquery-ui
 ---
 
-This tool processes your conversation log from WhatsApp to give you some interesting insights, see the [bottom](#how-to-use-this-tool) of the page for help. It is all processed locally in JavaScript, so your messages are perfectly safe :) That said, JavaScript is a bit slow, so it may take a while. You may examine the source code [here]({{ site.baseurl }}/assets/js/whatsapp-processor.js), be kind it is poorly optimised.
+This tool processes your conversation log from WhatsApp to give you some interesting insights, see the [bottom](#how-to-use-this-tool) of the page for help. It is all processed locally in JavaScript, so your messages are perfectly safe :) That said, JavaScript is a bit slow, so it may take a while. You may examine the source code [here]({{ site.baseurl }}/assets/js/whatsapp-processor.js){:target="_blank"}, be kind it is poorly optimised.
 
 <fieldset id="log-type-group">
   <legend>Select a Log Type: </legend>

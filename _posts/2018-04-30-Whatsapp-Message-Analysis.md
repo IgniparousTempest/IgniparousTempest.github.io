@@ -331,7 +331,7 @@ function processGroupMessagesFile(text) {
 	let frequency = messageFrequency(messages, true);
 	
 	let keys = Object.keys(frequency);
-	groupMessagesChart.options.data[i].dataPoints = [];
+	groupMessagesChart.options.data[0].dataPoints = [];
 	for (let i=0; i<keys.length; i++)
 		groupMessagesChart.options.data[0].dataPoints.push({ label: keys[i], y: frequency[keys[i]] });
 	groupMessagesChart.render();

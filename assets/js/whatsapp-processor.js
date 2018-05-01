@@ -29,7 +29,7 @@ function messageFrequency(messages) {
 // Gets the names of the two participants in the conversation.
 function getCorrespondentsNames(frequency, getAll = false) {
     let names = Object.keys(frequency).map(function(key) {return key;});
-    if (names.length === 2)
+    if (getAll || names.length === 2)
         return names;
     else if (names.length >= 2)
         throw "There were too many participants in the conversation log (expected 2, got "+names.length+")?";

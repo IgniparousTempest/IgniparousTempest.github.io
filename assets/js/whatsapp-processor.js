@@ -1,5 +1,9 @@
 function processMessages(text) {
+    // WhatsApp in all their wisdom has different formats for log files from different devices
+    // Android RegEx
     const regex = /^(\d{4}\/\d{2}\/\d{2}), (\d{2}:\d{2}) - (([^\n]*?): )?(.+?(?=(\d{4}\/\d{2}\/\d{2}, \d{2}:\d{2} - )|(?!.)))/gusm;
+    // iOS RegEx
+    //const regex = /^\[(\d{4}\/\d{2}\/\d{2}), (\d{2}:\d{2}):\d{2}\] (([^\n]*?): )?(.+?(?=(\[\d{4}\/\d{2}\/\d{2}, \d{2}:\d{2}:\d{2}\])|(?!.)))/gusm;
 
     let messages = [];
     while (true) {
@@ -140,14 +144,12 @@ function messageTime(messages, names) {
 
     for (let i = 0; i < messages.length; i++) {
         if (names.includes(messages[i].name)) {
-            let time = moment("1970-01-01T00:00:00Z");
-            for (let j = 0; j < 24 * 4; j++) {
-                time.add(15, 'minutes').calendar();
-                if (moment('1970-01-01T'+messages[i].time+':00Z').isBefore(time)) {
-                    times[messages[i].name][j] += 1;
-                    break;
-                }
-            }
+            let timeStr = messages[i].time.split(':');
+            let minutes = parseInt(timeStr[0]) * 60 + parseInt(timeStr[1]);
+            let index = Math.floor(minutes / 15);
+            if (index >= 24 * 4)
+                index = 24 * 4 - 1;
+            times[messages[i].name][index] += 1;
         }
     }
 

@@ -13,6 +13,7 @@ function processMessages(text) {
 }
 
 // Counts the number of messages sent by each participant.
+// Returns a dictionary containing a name and the number of messages sent.
 function messageFrequency(messages) {
     let frequency = {};
     for (let i = 0; i < messages.length; i++) {

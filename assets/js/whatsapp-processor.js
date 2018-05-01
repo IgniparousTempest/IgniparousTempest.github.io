@@ -1,16 +1,21 @@
 function processMessages(text) {
     // WhatsApp in all their wisdom has different formats for log files from different devices
     // Android RegEx
-    const regex = /^(\d{4}\/\d{2}\/\d{2}), (\d{2}:\d{2}) - (([^\n]*?): )?(.+?(?=(\d{4}\/\d{2}\/\d{2}, \d{2}:\d{2} - )|(?!.)))/gusm;
+    const androidRegEx = /^(\d{4}\/\d{2}\/\d{2}), (\d{2}:\d{2}) - (([^\n]*?): )?(.+?(?=(\d{4}\/\d{2}\/\d{2}, \d{2}:\d{2} - )|(?!.)))/gusm;
     // iOS RegEx
-    //const regex = /^\[(\d{4}\/\d{2}\/\d{2}), (\d{2}:\d{2}):\d{2}\] (([^\n]*?): )?(.+?(?=(\[\d{4}\/\d{2}\/\d{2}, \d{2}:\d{2}:\d{2}\])|(?!.)))/gusm;
+    const iosRegEx = /^\[(\d{4}\/\d{2}\/\d{2}), (\d{2}:\d{2}):\d{2}\] (([^\n]*?): )?(.+?(?=(\[\d{4}\/\d{2}\/\d{2}, \d{2}:\d{2}:\d{2}\])|(?!.)))/gusm;
 
+    let regex = androidRegEx;
     let messages = [];
-    while (true) {
-        const match = regex.exec(text);
-        if (match === null)
-            break;
-        messages.push({date: match[1], time: match[2], name: match[4], message: match[5]});
+    for (let i = 0; i < 2; i++) {
+        while (true) {
+            const match = regex.exec(text);
+            if (match === null)
+                break;
+            messages.push({date: match[1], time: match[2], name: match[4], message: match[5]});
+        }
+        if (messages.length === 0)
+            regex = iosRegEx;
     }
 
     return messages;

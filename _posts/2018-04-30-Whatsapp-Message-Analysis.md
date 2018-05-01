@@ -245,7 +245,7 @@ function readSingleFile(e) {
   var reader = new FileReader();
   reader.onload = function(e) {
     var contents = e.target.result;
-    processGroupMessagesFile(contents);
+    processMessagesFile(contents);
   };
   reader.readAsText(file);
 }
@@ -259,7 +259,7 @@ function readGroupFile(e) {
   var reader = new FileReader();
   reader.onload = function(e) {
     var contents = e.target.result;
-    processMessagesFile(contents);
+    processGroupMessagesFile(contents);
   };
   reader.readAsText(file);
 }

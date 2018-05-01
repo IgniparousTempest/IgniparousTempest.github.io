@@ -245,7 +245,7 @@ function readSingleFile(e) {
   var reader = new FileReader();
   reader.onload = function(e) {
     var contents = e.target.result;
-    processMessagesFile(contents);
+    processGroupMessagesFile(contents);
   };
   reader.readAsText(file);
 }

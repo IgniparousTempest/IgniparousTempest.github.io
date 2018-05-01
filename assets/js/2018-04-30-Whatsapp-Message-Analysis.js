@@ -100,7 +100,7 @@ function processIndividualMessagesFile(text) {
 
     weekChartUpdate(names, weekMessages);
     hourChartUpdate(names, timeMessages);
-    updateDateRange(messages[0].date, messages[messages.length - 1].date);
+    updateDateRange(messages);
 }
 
 function processGroupMessagesFile(text) {
@@ -113,7 +113,7 @@ function processGroupMessagesFile(text) {
     weekChartUpdate(names, weekMessages);
     hourChartUpdate(names, timeMessages);
     messagesChartUpdate(frequency);
-    updateDateRange(messages[0].date, messages[messages.length - 1].date);
+    updateDateRange(messages);
 }
 
 function weekChartUpdate(names, data) {
@@ -166,8 +166,19 @@ function messagesChartUpdate(frequency) {
     messagesChart.render();
 }
 
-function updateDateRange(from, to) {
-    $('#message-date-range').text("For the range, "+from+" to "+to+":");
+function updateDateRange(messages) {
+    let i = 0;
+    while (true) {
+        if (typeof messages[i].name !== "undefined") {
+            $('#message-date-range').text("For the range, " + messages[i].date + " to " + messages[messages.length - 1].date + ":");
+            break;
+        }
+        if (i === messages.length - 1) {
+            $('#message-date-range').text("For an unknown range:");
+            break;
+        }
+        i++;
+    }
 }
 
 function updateLogType(saveData = true) {

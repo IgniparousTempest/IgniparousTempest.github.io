@@ -182,6 +182,34 @@ function emojiCount(messages, names) {
     return numEmojis;
 }
 
+// Tries to guess the skin colour of each participant.
+function skinColour(messages, names) {
+    let colours = {};
+    for (let i = 0; i < names.length; i++)
+	colours[names[i]] = {'🏻': 0, '🏼': 0, '🏽': 0, '🏾': 0, '🏿': 0}
+
+    for (let i = 0; i < messages.length; i++) {
+        if (names.includes(messages[i].name)) {
+            colours[messages[i].name]['🏻'] = (messages[i].message.match(/🏻/g) || []).length;
+            colours[messages[i].name]['🏼'] = (messages[i].message.match(/🏼/g) || []).length;
+            colours[messages[i].name]['🏽'] = (messages[i].message.match(/🏽/g) || []).length;
+            colours[messages[i].name]['🏾'] = (messages[i].message.match(/🏾/g) || []).length;
+            colours[messages[i].name]['🏿'] = (messages[i].message.match(/🏿/g) || []).length;
+        }
+    }
+
+    for (let i = 0; i < names.length; i++) {
+        const cols = colours[names[i]]
+        const col = Object.keys(cols).reduce((a, b) => cols[a] > cols[b] ? a : b);
+        if (colours[names[i]][col] === 0)
+            colours[names[i]] = "Unknown";
+        else
+            colours[names[i]] = col;
+    }
+
+    return colours;
+}
+
 // Calculates the number of media messages sent by each participant.
 function mediaMessageCount(messages, names) {
     let numMedia = countDictionary(names);

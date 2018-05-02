@@ -67,6 +67,11 @@ This supports a conversation log with an individual or a group.
     <td id="emoji_2" align="center"></td>
   </tr>
   <tr>
+    <td><b>Happy Emojis:</b></td>
+    <td id="happiness_1" align="center"></td>
+    <td id="happiness_2" align="center"></td>
+  </tr>
+  <tr>
     <td><b>Assumed Skin Colour:</b></td>
     <td id="skin_1" align="center"></td>
     <td id="skin_2" align="center"></td>

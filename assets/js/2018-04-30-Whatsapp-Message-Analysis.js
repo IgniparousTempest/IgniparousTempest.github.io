@@ -79,6 +79,7 @@ function processMessagesFile(text) {
         let numLocations = locationMessageCount(messages, names);
         let emojis = emojiCount(messages, names);
         let numEmoji = emojiTotal(emojis, names);
+        let avgHappiness = emojiAverageHappiness(emojis, names);
         let colour = skinColour(messages, names);
 	console.log(emojis);
 
@@ -100,6 +101,8 @@ function processMessagesFile(text) {
         $('#location_2').html(numLocations[names[1]]);
         $('#emoji_1').html(numEmoji[names[0]]);
         $('#emoji_2').html(numEmoji[names[1]]);
+        $('#happiness_1').html((avgHappiness[names[0]] * 100).toFixed(0) + '%');
+        $('#happiness_2').html((avgHappiness[names[1]] * 100).toFixed(0) + '%');
         $('#skin_1').html(colour[names[0]].colour);
         $('#skin_2').html(colour[names[1]].colour);
 

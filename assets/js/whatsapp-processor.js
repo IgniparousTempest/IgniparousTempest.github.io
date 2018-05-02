@@ -200,6 +200,31 @@ function emojiTotal(emojis, names) {
     return total;
 }
 
+// Calculates the average happiness of the conversation by the types of emoji sent.
+function emojiAverageHappiness(emojis, names) {
+    let happiness = {};
+    for (let i = 0; i < names.length; i++)
+        happiness[names[i]] = {happy: 0, sad: 0};
+    
+    for (let i = 0; i < names.length; i++) {
+        for (key in emojis[names[i]]) {
+            if ("😀😁😂😃😄😆😊😍😘😗😙😚☺️🙂🤗❤️".includes(key))
+                happiness[names[i]].happy += emojis[names[i]][key];
+            else if ("💔😡😠😢😭😞😟🙁☹️".includes(key))
+                happiness[names[i]].sad += emojis[names[i]][key];
+	}
+    }
+    
+    for (let i = 0; i < names.length; i++) {
+        if (happiness[names[i]].happy + happiness[names[i]].sad === 0)
+	    happiness[names[i]] = 0.5;
+        else
+	    happiness[names[i]] = happiness[names[i]].happy / (happiness[names[i]].happy + happiness[names[i]].sad);
+    }
+
+    return happiness;
+}
+
 // Tries to guess the skin colour of each participant.
 function skinColour(messages, names) {
     let colours = {};

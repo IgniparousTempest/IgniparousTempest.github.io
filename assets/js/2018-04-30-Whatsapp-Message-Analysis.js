@@ -47,6 +47,35 @@ let messagesChart = new CanvasJS.Chart("messagesVis", {
 });
 messagesChart.render();
 
+var emojiChart1 = new CanvasJS.Chart("emojiVis1", {
+    animationEnabled: true,
+    title: {
+        text: "Emoji Distribution for Person1"
+    },
+    data: [{
+        type: "pie",
+        yValueFormatString: "##0.0\"%\"",
+        indexLabel: "{label} {y}",    indexLabelFontSize: 26,
+        dataPoints: []
+    }]
+});
+emojiChart1.render();
+
+var emojiChart2 = new CanvasJS.Chart("emojiVis2", {
+    animationEnabled: true,
+    title: {
+        text: "Emoji Distribution for Person2"
+    },
+    data: [{
+        type: "pie",
+        yValueFormatString: "##0.0\"%\"",
+        indexLabel: "{label} {y}",
+        indexLabelFontSize: 26,
+        dataPoints: []
+    }]
+});
+emojiChart2.render();
+
 // Opens the chat log
 function readMessageFile(e) {
     var file = e.target.files[0];
@@ -81,7 +110,6 @@ function processMessagesFile(text) {
         let numEmoji = emojiTotal(emojis, names);
         let avgHappiness = emojiAverageHappiness(emojis, names);
         let colour = skinColour(messages, names);
-	console.log(emojis);
 
         $('#name1').html(names[0]);
         $('#name2').html(names[1]);
@@ -108,11 +136,17 @@ function processMessagesFile(text) {
 
         $( "#individualStats" ).show();
         $( "#messagesVis" ).hide();
+        $( "#emojiVis1" ).show();
+        $( "#emojiVis2" ).show();
+	
+        emojiChartUpdate(names, emojis, numEmoji);
     }
     // Conversation with group
     else {
         $( "#individualStats" ).hide();
         $( "#messagesVis" ).show();
+        $( "#emojiVis1" ).hide();
+        $( "#emojiVis2" ).hide();
 
         messagesChartUpdate(frequency);
     }
@@ -170,6 +204,35 @@ function messagesChartUpdate(frequency) {
     for (let i = 0; i < keys.length; i++)
         messagesChart.options.data[0].dataPoints.push({ label: keys[i], y: frequency[keys[i]] });
     messagesChart.render();
+}
+
+function emojiChartUpdate(names, emoji, numEmoji) {
+    emojiChart1.options.data = [{
+	type: "pie",
+	yValueFormatString: "##0.0\"%\"",
+	indexLabel: "{label} {y}",
+        indexLabelFontSize: 26,
+	dataPoints: []
+    }];
+    emojiChart2.options.data = [{
+	type: "pie",
+	yValueFormatString: "##0.0\"%\"",
+	indexLabel: "{label} {y}",
+        indexLabelFontSize: 26,
+	dataPoints: []
+    }];
+    
+    emojiChart1.options.title.text = "Emoji Distribution for " + names[0];
+    emojiChart2.options.title.text = "Emoji Distribution for " + names[1];
+    
+    for (var e in emoji[names[0]]) {
+        console.log([e, emoji[names[0]][e]]);
+        emojiChart1.options.data[0].dataPoints.push({ label: e, y: emoji[names[0]][e] / numEmoji[names[0]] * 100});
+    }
+    for (var e in emoji[names[1]])
+        emojiChart2.options.data[0].dataPoints.push({ label: e, y: emoji[names[1]][e]  / numEmoji[names[1]] * 100});
+    emojiChart1.render();
+    emojiChart2.render();
 }
 
 function updateDateRange(messages) {

@@ -84,6 +84,13 @@ This supports a conversation log with an individual or a group.
 
 <div id="hourVis" style="width: 100%; height: 300px;"></div>
 
+<div style="width: 100%; display: table;">
+    <div style="display: table-row">
+        <div id="emojiVis1" style="width: 50%; height: 300px; display: table-cell;"></div>
+	<div id="emojiVis2" style="width: 50%; height: 300px; display: table-cell;"></div>
+    </div>
+</div>
+
 ## How to Use This Tool
 
 Open up WhatsApp, press the breadcrumbs button in the action bar, select "More", "Email chat", and then "Without Media". Email the chat log to yourself, then download the *.txt file and open it with this tool.

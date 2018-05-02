@@ -273,7 +273,7 @@ function emojiGroupChartUpdate(emoji) {
     }
     
     for (var e in set)
-        emojiGroupChart.options.data[0].dataPoints.push({ label: e, y: emoji[names[1]][e]  / numEmoji * 100});
+        emojiGroupChart.options.data[0].dataPoints.push({ label: e, y: set[e] / numEmoji * 100});
     emojiGroupChart.render();
 }
 

@@ -201,10 +201,10 @@ function skinColour(messages, names) {
     for (let i = 0; i < names.length; i++) {
         const cols = colours[names[i]]
         const col = Object.keys(cols).reduce((a, b) => cols[a] > cols[b] ? a : b);
-        if (colours[names[i]][col] === 0)
-            colours[names[i]] = "Unknown";
+        if (cols[col] === 0)
+            colours[names[i]] = {colour: "Unknown", confidence: 1.0};
         else
-            colours[names[i]] = col;
+            colours[names[i]] = {colour: col, confidence: cols[col] / Object.values(cols).reduce((a, b) => a + b)};
     }
 
     return colours;

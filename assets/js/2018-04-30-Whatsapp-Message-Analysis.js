@@ -77,7 +77,10 @@ function processMessagesFile(text) {
         let longestStreak = messageStreak(messages, names);
         let numMedia = mediaMessageCount(messages, names);
         let numLocations = locationMessageCount(messages, names);
-        let numEmoji = emojiCount(messages, names);
+        let emojis = emojiCount(messages, names);
+        let numEmoji = emojiTotal(emojis, names);
+        let colour = skinColour(messages, names);
+	console.log(emojis);
 
         $('#name1').html(names[0]);
         $('#name2').html(names[1]);
@@ -97,6 +100,8 @@ function processMessagesFile(text) {
         $('#location_2').html(numLocations[names[1]]);
         $('#emoji_1').html(numEmoji[names[0]]);
         $('#emoji_2').html(numEmoji[names[1]]);
+        $('#skin_1').html(colour[names[0]].colour);
+        $('#skin_2').html(colour[names[1]].colour);
 
         $( "#individualStats" ).show();
         $( "#messagesVis" ).hide();

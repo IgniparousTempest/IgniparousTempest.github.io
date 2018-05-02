@@ -66,6 +66,11 @@ This supports a conversation log with an individual or a group.
     <td id="emoji_1" align="center"></td>
     <td id="emoji_2" align="center"></td>
   </tr>
+  <tr>
+    <td><b>Assumed Skin Colour:</b></td>
+    <td id="skin_1" align="center"></td>
+    <td id="skin_2" align="center"></td>
+  </tr>
 </table>
 
 <div id="messagesVis" style="width: 100%; height: 300px;"></div>

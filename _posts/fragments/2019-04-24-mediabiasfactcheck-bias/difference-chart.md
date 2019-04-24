@@ -1,10 +1,10 @@
 <script>
-    window.onload = function () {
+    window.addEventListener('load', function () {
 
         const colors = ["rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(255, 127, 14)", "rgb(31, 119, 180)", "rgb(31, 119, 180)", "rgb(31, 119, 180)", "rgb(31, 119, 180)", "rgb(31, 119, 180)", "rgb(31, 119, 180)", "rgb(255, 127, 14)", "rgb(31, 119, 180)", "rgb(31, 119, 180)", "rgb(31, 119, 180)", "rgb(31, 119, 180)", "rgb(31, 119, 180)", "rgb(31, 119, 180)", "rgb(31, 119, 180)", "rgb(31, 119, 180)", "rgb(31, 119, 180)", "rgb(31, 119, 180)", "rgb(31, 119, 180)", "rgb(31, 119, 180)", "rgb(31, 119, 180)", "rgb(31, 119, 180)"];
         CanvasJS.addColorSet("customColorSet", colors);
 
-        const chart = new CanvasJS.Chart("differencesChartContainer", {
+        const chart2 = new CanvasJS.Chart("differencesChartContainer", {
             animationEnabled: true,
             theme: "light2", // "light1", "light2", "dark1", "dark2"
             colorSet:  "customColorSet",
@@ -100,9 +100,9 @@
                 }
             ]
         });
-        chart.render();
+        chart2.render();
 
-    }
+    }, false);
 </script>
 
 <div id="differencesChartContainer" style="height: 370px; width: 100%;"></div>

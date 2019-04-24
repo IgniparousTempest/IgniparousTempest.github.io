@@ -1,6 +1,6 @@
 ---
 layout: post
-title: mediabiasfactcheck Bias
+title: Media Bias/Fact Check Bias
 subtitle: bias in my bias?
 image: /images/title_media-bias.jpg
 og_image: /images/og_media-bias.png
@@ -11,7 +11,7 @@ include:
 - datatables
 ---
 
-[mediabiasfactcheck.com](https://mediabiasfactcheck.com/) seems like a great site to lookup the bias of a media outlet, after a bit of browsing on the site I noticed that they had a few entries that differed a bit to [ad fontes media](https://www.adfontesmedia.com/).
+[Media Bias/Fact Check](https://mediabiasfactcheck.com/) seems like a great site to lookup the bias of a media outlet, after a bit of browsing on the site I noticed that they had a few entries that differed a bit to [ad fontes media](https://www.adfontesmedia.com/).
 
 I wrote a web scraper to collect all the media outlets listed on mediabiasfactcheck.com and I have presented that data below. Unfortunately they score media outlets with discreet values rather than on continuous spectra. Their discreet scores for left-right bias are: "Extreme Left", "Left Bias", "Left-Centre Bias", "Least Biased", "Right-Centre Bias", "Right Bias", and "Extreme Right"; while their scores for factual reporting are: "High", "Mixed", and "Questionable". They do show a continuous slider of the top of each page to show the lef-right bias and an extension of this project would to be translate that slider into a continuous value. Initially that was my plan, but the naming scheme of their sliders was very inconsistent, which made the task quite off putting.    
 
@@ -47,14 +47,15 @@ I wrote a web scraper to collect all the media outlets listed on mediabiasfactch
                     type: "stackedArea",
                     color: "rgba(192,46,29,0.7)",
                     markerSize: 0,
+                    toolTipContent: "<span style='\"'color: {color};'\"'>{name}</span>: {y} ({percent}%)",
                     dataPoints: [
-                        { label: "Extreme Left", y: 42 },
-                        { label: "Left Bias", y: 6 },
-                        { label: "Left-Centre Bias", y: 3 },
-                        { label: "Least Biased", y: 0 },
-                        { label: "Right-Centre Bias", y: 4 },
-                        { label: "Right Bias", y: 37 },
-                        { label: "Extreme Right", y: 359 }
+                        { label: "Extreme Left", y: 42, percent: 95 },
+                        { label: "Left Bias", y: 6, percent: 2 },
+                        { label: "Left-Centre Bias", y: 3, percent: 1 },
+                        { label: "Least Biased", y: 0, percent: 0 },
+                        { label: "Right-Centre Bias", y: 4, percent: 2 },
+                        { label: "Right Bias", y: 37, percent: 12 },
+                        { label: "Extreme Right", y: 359, percent: 99 }
                     ]
                 },
                 {
@@ -64,14 +65,15 @@ I wrote a web scraper to collect all the media outlets listed on mediabiasfactch
                     type: "stackedArea",
                     color: "rgba(241,108,32,0.7)",
                     markerSize: 0,
+                    toolTipContent: "<span style='\"'color: {color};'\"'>{name}</span>: {y} ({percent}%)",
                     dataPoints: [
-                        { label: "Extreme Left", y: 2 },
-                        { label: "Left Bias", y: 123 },
-                        { label: "Left-Centre Bias", y: 40 },
-                        { label: "Least Biased", y: 17 },
-                        { label: "Right-Centre Bias", y: 39 },
-                        { label: "Right Bias", y: 223 },
-                        { label: "Extreme Right", y: 5 }
+                        { label: "Extreme Left", y: 2, percent: 5 },
+                        { label: "Left Bias", y: 123, percent: 38 },
+                        { label: "Left-Centre Bias", y: 40, percent: 9 },
+                        { label: "Least Biased", y: 17, percent: 4 },
+                        { label: "Right-Centre Bias", y: 39, percent: 17 },
+                        { label: "Right Bias", y: 223, percent: 74 },
+                        { label: "Extreme Right", y: 5, percent: 1 }
                     ]
                 },
                 {
@@ -81,14 +83,15 @@ I wrote a web scraper to collect all the media outlets listed on mediabiasfactch
                     type: "stackedArea",
                     color: "rgba(162,184,108,0.6)",
                     markerSize: 0,
+                    toolTipContent: "<span style='\"'color: {color};'\"'>{name}</span>: {y} ({percent}%)",
                     dataPoints: [
-                        { label: "Extreme Left", y: 0 },
-                        { label: "Left Bias", y: 195 },
-                        { label: "Left-Centre Bias", y: 427 },
-                        { label: "Least Biased", y: 287 },
-                        { label: "Right-Centre Bias", y: 188 },
-                        { label: "Right Bias", y: 41 },
-                        { label: "Extreme Right", y: 0 }
+                        { label: "Extreme Left", y: 0, percent: 0 },
+                        { label: "Left Bias", y: 195, percent: 60 },
+                        { label: "Left-Centre Bias", y: 427, percent: 91 },
+                        { label: "Least Biased", y: 287, percent: 96 },
+                        { label: "Right-Centre Bias", y: 188, percent: 81 },
+                        { label: "Right Bias", y: 41, percent: 14 },
+                        { label: "Extreme Right", y: 0, percent: 0 }
                     ]
                 }]
         });
@@ -99,6 +102,10 @@ I wrote a web scraper to collect all the media outlets listed on mediabiasfactch
 
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+The chart shows the number of media outlets that mediabiasfactcheck.com listed in each of the left-right bias categories and the factual distribution of the outlets. 
+
+The data is skewed towards more centre-left sources and lists them as proportionally more factual than centre-right sources, but in isolation these data do not imply mediabiasfactcheck.com has any left-right bias.
 
 This data was collected on the 24th of April 2019 at around 12:00 GMT.
 
@@ -15090,8 +15097,6 @@ This data was collected on the 24th of April 2019 at around 12:00 GMT.
     </tr>
     </tbody>
 </table>
-
-The data is skewed towards more centre-left sources and lists them as proportionally more factual than centre-right sources, but in isolation these data do not imply mediabiasfactcheck.com has any left-right bias.
 
 The source code for this can be found on my [github repo](https://github.com/IgniparousTempest/mediabiasfactcheck.com-bias).
 

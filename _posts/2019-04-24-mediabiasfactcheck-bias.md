@@ -21,6 +21,10 @@ The chart shows the number of media outlets that mediabiasfactcheck.com listed i
 
 The data is skewed towards more centre-left sources. It also favours lists left wing sources as proportionally more factual than their right wing counterparts, e.g. Left-Centre is more factual than Right-Centre and Extreme Left is more factual than Extreme Right. In isolation these data do not imply mediabiasfactcheck.com has any left-right bias.
 
+{% include_relative fragments/2019-04-24-mediabiasfactcheck-bias/difference-chart.md %}
+
+The above chart shows the left-right score for Media Bias/Fact Check and Ad Fontes Media, the orange Bars are when Media Bias/Fact Check is futher left than Ad Fontes Media, and the blue bars are where Media Bias/Fact Check if futher right than Ad Fontes Media.
+
 This data was collected on the 24th of April 2019 at around 12:00 GMT.
 
 <script>
@@ -36,7 +40,3 @@ This data was collected on the 24th of April 2019 at around 12:00 GMT.
 {% include_relative fragments/2019-04-24-mediabiasfactcheck-bias/table.md %}
 
 The source code for this can be found on my [github repo](https://github.com/IgniparousTempest/mediabiasfactcheck.com-bias).
-
-## Future Work
-
-I would then like to compare the values given on mediabiasfactcheck.com with those givern on adfontesmedia.com and chart the difference between their scores for each media outlet.

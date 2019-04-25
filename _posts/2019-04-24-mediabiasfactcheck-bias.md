@@ -8,6 +8,7 @@ categories:
 - other
 include:
 - jquery
+- canvasjs
 - datatables
 ---
 

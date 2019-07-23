@@ -181,8 +181,8 @@ function solve(pyramidArray, stockArray, stockIndex, remainingStocks, moveArray)
     }
 
     // match top stock card with previous one
-    if (stockIndex > 0) {
-        const previousStock = new Card(stockArray[stockIndex - 1]);
+    const previousStock = new Card(stockArray[stockIndex - 1]);
+    if (stockIndex > 0 && topStock.isComplement(previousStock)) {
         let newStock = JSON.parse(JSON.stringify(stockArray));
         newStock.splice(stockIndex, 1);
         newStock.splice(stockIndex - 1, 1);

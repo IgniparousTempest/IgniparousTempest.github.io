@@ -81,5 +81,28 @@
                 movesList.append(items.join(''));
             }
         });
-    });
+        $("#btnImport").click(function(){
+            const cardString = $('#txtEncoded').val().replace(/\s+/g, " ").trim();
+            const cards = cardString === "" ? [] : cardString.split(" ");
+            const length = Math.min(inputManager.numberOfCards, cards.length);
+
+            for (let i = 0; i < inputManager.numberOfCards; i++) {
+                const rank = i < length ? cards[i][0].toUpperCase() : '';
+                const suit = i < length ? cards[i][1].toUpperCase() : '';
+                if (i < length && "A23456789TJQK".includes(rank) && "HDCS".includes(suit))
+                    changeRankAndSuit(inputManager.atIndex(i), rank, suit);
+                else
+                    changeRankAndSuit(inputManager.atIndex(i), '', '');
+            }
+            inputManager.validateCards(true);
+            layer.draw();
+        });
+        $("#btnExport").click(function(){
+            let array = [];
+            for (let i = 0; i < inputManager.numberOfCards; i++) {
+                array.push(cardString(inputManager.atIndex(i)));
+            }
+            $('#txtEncoded').val(array.join(" "));
+        });
+});
 </script>

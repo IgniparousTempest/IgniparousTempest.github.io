@@ -17,6 +17,11 @@ Solves a deal of the game Pyramid Solitaire.
 
 Click on the top card and start typing. Cards are represented by a pair of letters for rank and suit. AS, 2D, TH, KC... The algorithm is a brute force with some minor heuristic tweaks, so it might take long on unsolvable decks. The row of cards at the bottom is the stock. Once all the cards are entered, click the solve button. 
 
+<div id="containerImportExport">
+    <input type="text" id="txtEncoded" />
+    <input type="button" id="btnImport" value="Import" />
+    <input type="button" id="btnExport" value="Export" />
+</div>
 <div id="container"></div>
 <div style="text-align: center;">
     <input type="button" id="btnSolve" value="Solve" />

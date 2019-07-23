@@ -75,6 +75,10 @@ class InputManager {
             return this.deck[index - this.pyramid.length];
     }
 
+    get numberOfCards() {
+        return this.pyramid.length + this.deck.length;
+    }
+
     get selectedCard() {
         return this.atIndex(this._index);
     }

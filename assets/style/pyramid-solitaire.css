@@ -1,0 +1,17 @@
+#container {
+    margin: 0;
+    padding: 0;
+    height: 550px;
+    overflow: hidden;
+    background-color: #21a021;
+}
+#moves {
+    overflow: scroll;
+    width: 400px;
+    height: 200px;
+    /* Align centre */
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}

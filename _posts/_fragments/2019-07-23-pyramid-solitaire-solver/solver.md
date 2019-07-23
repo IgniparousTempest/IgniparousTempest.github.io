@@ -5,7 +5,7 @@
 <script type="text/javascript" src="{{ site.baseurl }}/assets/js/2019-07-23-pyramid-solitaire-solver/solver.js"></script>
 
 <script>
-    const width = window.innerWidth;
+    const width = $('#container').width();
     const height = window.innerHeight;
 
     const stage = new Konva.Stage({

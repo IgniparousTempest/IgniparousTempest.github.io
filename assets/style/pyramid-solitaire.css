@@ -6,7 +6,7 @@
     background-color: #21a021;
 }
 #moves {
-    overflow: scroll;
+    overflow: auto;
     width: 400px;
     height: 200px;
     /* Align centre */

@@ -11,9 +11,11 @@ include:
 - konva
 ---
 
+Solves a deal of the game Pyramid Solitaire.
+
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/style/pyramid-solitaire.css">
 
-Click on the top card and start typing. Cards are represented by a pair of letters for rank and suit. AS, 2D, TH, KC... The algorithm is a brute force with some minor heuristic tweaks, so it might take long on unsolvable decks.
+Click on the top card and start typing. Cards are represented by a pair of letters for rank and suit. AS, 2D, TH, KC... The algorithm is a brute force with some minor heuristic tweaks, so it might take long on unsolvable decks. The row of cards at the bottom is the stock. Once all the cards are entered, click the solve button. 
 
 <div id="container"></div>
 <div style="text-align: center;">

@@ -33,4 +33,4 @@ Click on the top card and start typing. Cards are represented by a pair of lette
 
 {% include_relative _fragments/2019-07-23-pyramid-solitaire-solver/solver.md %}
 
-The source code for this can be found on my [github repo](https://github.com/IgniparousTempest/).
+The source code for this can be found on my [github repo](https://github.com/IgniparousTempest/javascript-pyramid-solitaire-solver).

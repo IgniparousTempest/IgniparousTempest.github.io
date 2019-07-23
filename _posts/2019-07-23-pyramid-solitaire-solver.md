@@ -8,6 +8,7 @@ categories:
 - other
 include:
 - jquery
+- konva
 ---
 
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/style/pyramid-solitaire.css">

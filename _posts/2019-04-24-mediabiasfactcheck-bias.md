@@ -4,6 +4,7 @@ title: Media Bias/Fact Check Bias
 subtitle: bias in my bias?
 image: /images/title_media-bias.jpg
 og_image: /images/og_media-bias.png
+comments: true
 categories:
 - other
 include:

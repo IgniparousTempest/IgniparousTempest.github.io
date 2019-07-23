@@ -3,6 +3,7 @@ layout: post
 title: Lego Clock
 image: /images/title_lego.svg
 og_image: /images/og_lego.png
+comments: true
 categories:
 - electronics
 - arduino

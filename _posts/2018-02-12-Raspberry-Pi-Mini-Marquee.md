@@ -4,6 +4,7 @@ title: Raspberry Pi Mini Marquee
 subtitle: A marquee for ants.
 image: /images/title_rpi_mini_marquee.jpg
 og_image: /images/og_rpi_mini_marquee.jpg
+comments: true
 categories:
 - electronics
 - raspberrypi

@@ -4,6 +4,7 @@ title: Pyramid Solitaire Solver
 subtitle: The mysteries of the pyramids solved!
 image: /images/title_pyramid-solitaire.jpg
 og_image: /images/og_pyramid-solitaire.png
+comments: true
 categories:
 - other
 include:

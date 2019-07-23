@@ -4,6 +4,7 @@ title: Whatsapp Message Analysis
 subtitle: Data is beautiful.
 image: /images/title_whatsapp.jpg
 og_image: /images/og_whatsapp.jpg
+comments: true
 categories:
 - software
 - tools

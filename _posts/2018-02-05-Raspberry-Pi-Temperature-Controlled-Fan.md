@@ -4,6 +4,7 @@ title: Raspberry Pi Temperature Controlled Fan
 subtitle: Icy Berry.
 image: /images/title_rpi_fan.jpg
 og_image: /images/og_rpi_fan.jpg
+comments: true
 categories:
 - electronics
 - raspberrypi

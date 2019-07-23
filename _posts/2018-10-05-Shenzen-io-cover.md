@@ -4,6 +4,7 @@ title: Shenzhen IO Cover
 subtitle: Copyright for whom?
 image: /images/title_shenzhen.jpg
 og_image: /images/og_shenzhen.jpg
+comments: true
 categories:
 - other
 - games

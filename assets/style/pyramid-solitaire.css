@@ -7,7 +7,7 @@
 }
 #moves {
     overflow: auto;
-    width: 400px;
+    width: 500px;
     height: 200px;
     /* Align centre */
     margin-left: auto;

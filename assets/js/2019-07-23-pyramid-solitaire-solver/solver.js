@@ -68,14 +68,6 @@ class Pyramid {
     }
 }
 
-class solver {
-    constructor(pyramidArray, stockArray) {
-        this.rank = cardString[0];
-        this.suit = cardString[1];
-    }
-
-}
-
 class MoveString {
     static gameWon() {return "You have won.";}
     static gameLost(reason) {return "You have lost. " + reason;}
@@ -180,23 +172,30 @@ function solve(pyramidArray, stockArray, stockIndex, remainingStocks, moveArray)
             return result;
     }
 
-    // match top stock card with previous one
-    const previousStock = new Card(stockArray[stockIndex - 1]);
-    if (stockIndex > 0 && topStock.isComplement(previousStock)) {
-        let newStock = JSON.parse(JSON.stringify(stockArray));
-        newStock.splice(stockIndex, 1);
-        newStock.splice(stockIndex - 1, 1);
-
-        newMoveArray = JSON.parse(JSON.stringify(moveArray));
-        newMoveArray.push(MoveString.matchStock(topStock.toString, previousStock.toString));
-
-        let result = solve(pyramidArray, newStock, stockIndex - 1, remainingStocks, newMoveArray);
-        if (result[0] === GameStates.won)
-            return result;
-    }
-
-    // Try a new card
+    // Flip over a new card
     newMoveArray = JSON.parse(JSON.stringify(moveArray));
     newMoveArray.push(MoveString.flipStock());
-    return solve(pyramidArray, stockArray, stockIndex + 1, remainingStocks, newMoveArray);
+    let result = solve(pyramidArray, stockArray, stockIndex + 1, remainingStocks, newMoveArray);
+    if (result[0] === GameStates.won)
+        return result;
+
+    // match top stock card with previous one
+    if (stockIndex > 0) {
+        const previousStock = new Card(stockArray[stockIndex - 1]);
+        if (topStock.isComplement(previousStock)) {
+            let newStock = JSON.parse(JSON.stringify(stockArray));
+            newStock.splice(stockIndex, 1);
+            newStock.splice(stockIndex - 1, 1);
+
+            newMoveArray = JSON.parse(JSON.stringify(moveArray));
+            newMoveArray.push(MoveString.matchStock(topStock.toString, previousStock.toString));
+
+            let result = solve(pyramidArray, newStock, stockIndex - 1, remainingStocks, newMoveArray);
+            if (result[0] === GameStates.won)
+                return result;
+        }
+    }
+
+    // This node was useless
+    return [GameStates.inProgress, moveArray];
 }

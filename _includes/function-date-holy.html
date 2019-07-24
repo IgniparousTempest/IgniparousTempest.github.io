@@ -1,7 +1,7 @@
 {% assign day = page.date | date: "%-d" %}
 {% assign year = page.date | date: "%Y" %}
-{% assign decade0 = page.date | date: "%y" | plus: 0 | modulo: 10 %}
-{% assign decade1 = page.date | date: "%y" | plus: 0 | divided_by: 10 %}
+{% assign decade1 = page.date | date: "%y" | plus: 0 | modulo: 10 %}
+{% assign decade0 = page.date | date: "%y" | plus: 0 | divided_by: 10 %}
 
 {% case day %}
     {% when '1' or '21' or '31' %}{{ day }}st
@@ -11,12 +11,8 @@
 {% endcase %}
 {{ page.date | date: " day of %B in the year of our Lord " }}
 {{ "two thousand and " }}
-{{ decade0 }}
-{{ " " }}
-{{ decade1 }}
-{{ " " }}
-{% if decade1 == 1 %}
-    {% case decade0 %}
+{% if decade0 == 1 %}
+    {% case decade1 %}
         {% when 1 %}eleven
         {% when 2 %}twelve
         {% when 3 %}thirteen
@@ -29,7 +25,7 @@
         {% when 0 %}ten
     {% endcase %}
 {% else %}
-    {% case decade1 %}
+    {% case decade0 %}
         {% when 2 %}twenty
         {% when 3 %}thirty
         {% when 4 %}forty
@@ -39,7 +35,7 @@
         {% when 8 %}eighty
         {% when 9 %}ninety
     {% endcase %}
-    {% case decade0 %}
+    {% case decade1 %}
         {% when 1 %} one
         {% when 2 %} two
         {% when 3 %} three

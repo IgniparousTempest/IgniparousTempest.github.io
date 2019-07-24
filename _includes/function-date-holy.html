@@ -9,8 +9,12 @@
     {% when '3' or '23' %}{{ day }}rd
 {% else %}{{ day }}th
 {% endcase %}
-{{ page.date | date: " day of %B  in the year of our Lord " }}
+{{ page.date | date: " day of %B in the year of our Lord " }}
 {{ "two thousand and " }}
+{{ decade0 }}
+{{ " " }}
+{{ decade1 }}
+{{ " " }}
 {% if decade1 == 1 %}
     {% case decade0 %}
         {% when 1 %}eleven

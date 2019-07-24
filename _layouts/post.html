@@ -25,35 +25,7 @@ layout: default
 	</div>
 
 	<div class="date">
-		Written on the
-		{% assign day = page.date | date: "%-d"  %}
-		{% case day %}
-			{% when '1' or '21' or '31' %}{{ day }}st
-			{% when '2' or '22' %}{{ day }}nd
-			{% when '3' or '23' %}{{ day }}rd
-			{% else %}{{ day }}th
-		{% endcase %}
-		{{ page.date | date: " day of %B  in the year of our Lord " }}
-		{% assign year = page.date | date: "%Y"  %}
-		{% case year %}
-			{% when '2014' %}two thousand and fourteen
-			{% when '2015' %}two thousand and fifteen
-			{% when '2016' %}two thousand and sixteen
-			{% when '2017' %}two thousand and seventeen
-			{% when '2018' %}two thousand and eighteen
-			{% when '2019' %}two thousand and nineteen
-			{% when '2020' %}two thousand and twenty
-			{% when '2021' %}two thousand and twenty one
-			{% when '2022' %}two thousand and twenty two
-			{% when '2023' %}two thousand and twenty three
-			{% when '2024' %}two thousand and twenty four
-			{% when '2025' %}two thousand and twenty five
-			{% when '2026' %}two thousand and twenty six
-			{% when '2027' %}two thousand and twenty seven
-			{% when '2028' %}two thousand and twenty eight
-			{% when '2029' %}two thousand and twenty nine
-			{% else %}Unknown ({{ year }})
-		{% endcase %}
+		Written on the {% include function-date-holy %}
 	</div>
 
 	{% if page.comments %}{% include disqus.html %}{% endif %}

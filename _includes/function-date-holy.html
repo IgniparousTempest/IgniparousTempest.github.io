@@ -1,0 +1,49 @@
+{% assign day = page.date | date: "%-d" %}
+{% assign year = page.date | date: "%Y" %}
+{% assign decade0 = page.date | date: "%y" | plus: 0 | modulo: 10 %}
+{% assign decade1 = page.date | date: "%y" | plus: 0 | divided_by: 10 %}
+
+{% case day %}
+    {% when '1' or '21' or '31' %}{{ day }}st
+    {% when '2' or '22' %}{{ day }}nd
+    {% when '3' or '23' %}{{ day }}rd
+{% else %}{{ day }}th
+{% endcase %}
+{{ page.date | date: " day of %B  in the year of our Lord " }}
+{{ "two thousand and " }}
+{% if decade0 == 1 %}
+    {% case decade1 %}
+        {% when 1 %}eleven
+        {% when 2 %}twelve
+        {% when 3 %}thirteen
+        {% when 4 %}fourteen
+        {% when 5 %}fifteen
+        {% when 6 %}sixteen
+        {% when 7 %}seventeen
+        {% when 8 %}eighteen
+        {% when 9 %}nineteen
+        {% when 0 %}ten
+    {% endcase %}
+{% else %}
+    {% case decade0 %}
+        {% when 2 %}twenty
+        {% when 3 %}thirty
+        {% when 4 %}forty
+        {% when 5 %}fifty
+        {% when 6 %}sixty
+        {% when 7 %}seventy
+        {% when 8 %}eighty
+        {% when 9 %}ninety
+    {% endcase %}
+    {% case decade1 %}
+        {% when 1 %} one
+        {% when 2 %} two
+        {% when 3 %} three
+        {% when 4 %} four
+        {% when 5 %} five
+        {% when 6 %} six
+        {% when 7 %} seven
+        {% when 8 %} eight
+        {% when 9 %} nine
+    {% endcase %}
+{% endif %}

@@ -4,6 +4,33 @@ function changeRankAndSuit(card, rank, suit) {
     card.find('#cardRank')[0].fill(colour);
     card.find('#cardSuit')[0].text(suit);
     card.find('#cardSuit')[0].fill(colour);
+    card.find('#cardSuit')[0].hide();
+
+    // Update suit image
+    const suitImage = card.find('#cardSuitImage')[0];
+    if (suitImage) suitImage.destroy();
+    if (suit !== '' && "HDCS".includes(suit)) {
+        let src = '';
+        if (suit === 'H')
+            src = 'suit_heart.svg';
+        else if (suit === 'D')
+            src = 'suit_diamond.svg';
+        else if (suit === 'C')
+            src = 'suit_club.svg';
+        else
+            src = 'suit_spade.svg';
+        Konva.Image.fromURL(src, function (image) {
+            image.setAttrs({
+                id: 'cardSuitImage',
+                x: Constants.card_width / 2 - 25,
+                y: Constants.card_height / 2 - 25 + 5,
+                width: 50,
+                height: 50
+            });
+            card.add(image);
+            layer.batchDraw(); // TODO: This needs to be passed as a parameter.
+        });
+    }
 }
 
 function cardString(card) {

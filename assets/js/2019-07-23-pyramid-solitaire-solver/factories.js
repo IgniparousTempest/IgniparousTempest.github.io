@@ -12,13 +12,13 @@ function changeRankAndSuit(card, rank, suit) {
     if (suit !== '' && "HDCS".includes(suit)) {
         let src = '';
         if (suit === 'H')
-            src = 'suit_heart.svg';
+            src = '/images/suit_heart.svg';
         else if (suit === 'D')
-            src = 'suit_diamond.svg';
+            src = '/images/suit_diamond.svg';
         else if (suit === 'C')
-            src = 'suit_club.svg';
+            src = '/images/suit_club.svg';
         else
-            src = 'suit_spade.svg';
+            src = '/images/suit_spade.svg';
         Konva.Image.fromURL(src, function (image) {
             image.setAttrs({
                 id: 'cardSuitImage',

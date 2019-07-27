@@ -20,7 +20,7 @@ Click on the top card and start typing. Cards are represented by a pair of lette
 
 Enter the stock cards first, as they are easy to find. Then try and figure out the cards in the pyramids, by clearing as much as you can. The remaining cards list may also help you.
 
-<p id="remainingCards">Remaining Cards: None</p>
+<p id="remainingCards">Missing Cards: None</p>
 
 This can't be operated on mobile devices, yet. This will be rectified soon (in African time at least).
 

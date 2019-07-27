@@ -57,8 +57,19 @@
             }
     });
 
+    function updateMissingCards() {
+        const missingCards = inputManager.missingCards();
+        if (missingCards.length === 0)
+            $('#remainingCards').text("Missing Cards: None");
+        else
+            $('#remainingCards').text("Missing Cards: " + missingCards.join(', '));
+    }
+
     container.addEventListener('keydown', function(e) {
         inputManager.type(e.key);
+
+        // Calculate missing cards;
+        updateMissingCards();
     });
 
     stage.add(layer);
@@ -96,6 +107,8 @@
             }
             inputManager.validateCards(true);
             layer.draw();
+
+            updateMissingCards();
         });
         $("#btnExport").click(function(){
             let array = [];

@@ -37,6 +37,26 @@ class InputManager {
         return array;
     }
 
+    missingCards() {
+        let expectedCards = [];
+        const ranks = "A23456789TJQK";
+        const suits = "HDCS";
+        for (let s = 0; s < suits.length; s++)
+            for (let r = 0; r < ranks.length; r++)
+                expectedCards.push(ranks[r] + suits[s]);
+
+        // Find missing cards
+        for (let i = 0; i < this.numberOfCards; i++) {
+            let rank = this.atIndex(i).find('#cardRank')[0].text();
+            let suit = this.atIndex(i).find('#cardSuit')[0].text();
+            const index = expectedCards.indexOf(rank + suit);
+            if (index > -1) {
+                expectedCards.splice(index, 1);
+            }
+        }
+        return expectedCards;
+    }
+
     pyramidCards() {
         let array = [];
         this.pyramid.forEach(x => array.push(cardString(x)));

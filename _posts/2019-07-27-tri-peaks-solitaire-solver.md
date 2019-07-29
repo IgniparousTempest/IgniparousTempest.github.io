@@ -22,7 +22,7 @@ Enter the stock cards first, as they are easy to find. Then try and figure out t
 
 <p id="remainingCards">Missing Cards: None</p>
 
-This can't be operated on mobile devices, yet. This will be rectified soon (in African time at least).
+For mobile devices, you can enter the cards into the textbox below. Start from top left peak, use a space as a seperator. 
 
 <div id="containerImportExport">
     <input type="text" id="txtEncoded" />

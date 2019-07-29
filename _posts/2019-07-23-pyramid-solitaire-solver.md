@@ -18,7 +18,7 @@ Solves a deal of the game Pyramid Solitaire.
 
 Click on the top card and start typing. Cards are represented by a pair of letters for rank and suit, e.g. AS, 2D, TH, KC... The algorithm is brute force with some minor heuristic tweaks, so it might take long on unsolvable decks. The row of cards at the bottom is the stock. Once all the cards are entered, click the solve button. If the card background turns maroon it means you have a duplicate.
 
-This can't be operated on mobile devices, yet. This will be rectified soon (in African time at least).
+For mobile devices, you can enter the cards into the textbox below. Start from top of the pyramid, use a space as a seperator.
 
 <div id="containerImportExport">
     <input type="text" id="txtEncoded" />

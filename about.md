@@ -14,8 +14,9 @@ I hail from the top of Africa.
 
 This website is a collection of some random things I've done, that I thought someone might want to read about.
 
-### Awesome websites
+### Sweet websites
 
 <a href="https://apod.nasa.gov/apod/astropix.html" target="_blank">Astronomy Picture of the Day</a>
 
+#### I didn't know where else to put this
 <iframe width="980" height="410" src="https://mars.nasa.gov/layout/embed/send-your-name/mars2020/certificate/?cn=306676318605" frameborder="0"></iframe>
